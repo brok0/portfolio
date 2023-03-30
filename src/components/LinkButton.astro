@@ -1,0 +1,28 @@
+---
+export interface Props {
+  link: string;
+  text: string;
+}
+
+const { link, text } = Astro.props;
+---
+
+<a href={link} class="button">{text}</a>
+
+<style>
+  .button {
+    display: inline-block;
+    padding: 10px;
+    height: fit-content;
+    margin-right: 30px;
+    border-radius: 10px;
+    background: #9501ff;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .button:visited {
+    color: white;
+  }
+</style>
