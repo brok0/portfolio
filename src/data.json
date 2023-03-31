@@ -23,7 +23,7 @@
     {
       "title":"Countries",
       "description":"This project is also challenge from frontendmentor. Crafted with with Vue 3 and Vite. Small SPA to show countries and theirs information. Includes features like: sorting, search, light/dark mode",
-      "img":"/countries.jpg",
+      "img":"countries.jpg",
       "demoLink":"https://brok0.github.io/countries-vue/",
       "codeLink":"https://github.com/brok0/countries-vue",
       "stack":[
@@ -33,7 +33,7 @@
     {
       "title":"Web Tutor",
       "description":"Web tutor is solution that could bring student and tutor together easily. This is full stack application that inludes SSR frontend using react and backend with Prisma and PostGre DB",
-      "img":"/web-tutor.jpg",
+      "img":"web-tutor.jpg",
       "codeLink":"https://github.com/brok0/web-tutor/tree/dev",
       "stack":[
         "React", "Next", "Prisma", "PostGre","TypeScript","NextAuth","OAuth2"
@@ -42,7 +42,7 @@
     {
       "title":"Ecommerce product page",
       "description":"As a part of challenge on frontendmentor.com. This page is fully responsive and created using only js html and css. No external libraries. It is really small project but It was fun to complete it.",
-      "img":"/ecommercepage.jpg",
+      "img":"ecommercepage.jpg",
       "demoLink":"https://brok0.github.io/ecommerce-product-page/#",
       "codeLink":"https://github.com/brok0/ecommerce-product-page",
       "stack":[
