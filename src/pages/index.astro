@@ -1,59 +1,47 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
+import Header from "../components/Header/Header.astro";
 import data from "../data.json";
-import Certificate from "../components/Certificate.astro";
-import Project from "../components/Project.astro";
+import Certificate from "../components/Certificate/Certificate.astro";
+import Project from "../components/Project/Project.astro";
 import LinkButton from "../components/LinkButton.astro";
+import Experience from "../components/ExperienceBlock/Experience.astro";
+import Skills from "../components/SkillsBlock/Skills.astro";
 ---
 
 <Layout title="Borys Hlynskyi">
   <Header />
   <main>
-    <h1 class="name">👋🏻 Hi I'm Borys Hlynskyi</h1>
-    <p class="subtitle">I am a web developer and a student from Ukraine. My specialization is frontend</p>
+    <h1 class="name">👋🏻 Hi, I'm Borys Hlynskyi</h1>
+    <h2 class="subhead">Web developer from Ukraine specializing in frontend</h2>
 
-    <h2 id="projects">Projects 🧙🏻‍♂️</h2>
+    <Skills skills={data.skills} />
+    <h2 id="projects">My Projects 🧙🏻‍♂️</h2>
 
     {data.projects.map((e) => <Project data={e} />)}
 
-    <div class="wave-block">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="waves"
-        ><path
-          fill="#000b76"
-          fill-opacity="1"
-          d="M0,160L26.7,160C53.3,160,107,160,160,144C213.3,128,267,96,320,74.7C373.3,53,427,43,480,64C533.3,85,587,139,640,176C693.3,213,747,235,800,218.7C853.3,203,907,149,960,160C1013.3,171,1067,245,1120,240C1173.3,235,1227,149,1280,122.7C1333.3,96,1387,128,1413,144L1440,160L1440,320L1413.3,320C1386.7,320,1333,320,1280,320C1226.7,320,1173,320,1120,320C1066.7,320,1013,320,960,320C906.7,320,853,320,800,320C746.7,320,693,320,640,320C586.7,320,533,320,480,320C426.7,320,373,320,320,320C266.7,320,213,320,160,320C106.7,320,53,320,27,320L0,320Z"
-        ></path>
-      </svg>
-
-      <div class="two-col" id="experience">
-        <div class="card">
-          <h2>Experience ⚒️</h2>
-
-          <h3>Exadel</h3>
-          <p>Junior Software Engineer</p>
-          <p>Sep 2021 - Present</p>
-        </div>
-        <div class="card">
-          <h2>Education 🏫</h2>
-
-          <h3>WUNU Masters Degree</h3>
-          <p>Software Engineering</p>
-          <p>2022 - Present</p>
-
-          <h3>WUNU Bachelors Degree</h3>
-          <p>Software Engineering</p>
-          <p>2018 - 2022</p>
-        </div>
-      </div>
-    </div>
+    <Experience />
 
     <h2 id="certifications">Certifications 👨🏻‍🏫</h2>
 
-    {data.certificates.map((e) => <Certificate title={e.title} description={e.description} link={e.link} />)}
+    {
+      data.certificates.map((e) => (
+        <Certificate
+          title={e.title}
+          description={e.description}
+          link={e.link}
+        />
+      ))
+    }
 
-    <div class="wave-block" id="contacts">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="waves top"><path fill="#0099ff" fill-opacity="1" d="M0,288L1440,192L1440,0L0,0Z"></path></svg>
+    <div class="waves-block" id="contacts">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 320"
+        class="waves top"
+        ><path fill="#0099ff" fill-opacity="1" d="M0,288L1440,192L1440,0L0,0Z"
+        ></path></svg
+      >
 
       <div class="center">
         <h2 class="know-more">Want to know more?</h2>
@@ -64,95 +52,6 @@ import LinkButton from "../components/LinkButton.astro";
   </main>
 </Layout>
 
-<style>
-  .center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-  }
-
-  h2.know-more {
-    margin-bottom: 0px;
-    color: white;
-    border: unset;
-    font-size: 46px;
-  }
-
-  .name {
-    font-size: 90px;
-    font-family: Monaco;
-    color: #747fe0;
-    text-align: center;
-  }
-  h2,
-  h3 {
-    color: #525f7f;
-  }
-  h2 {
-    width: fit-content;
-    padding-bottom: 30px;
-    padding-top: 30px;
-    border-bottom: 10px solid #2450c1;
-  }
-
-  .two-col {
-    display: flex;
-    gap: 40px;
-    justify-content: space-evenly;
-  }
-
-  .card {
-    border-radius: 10px;
-    background-color: white;
-    padding: 20px;
-  }
-
-  .card h2 {
-    margin-top: 0;
-    padding-top: 0;
-  }
-
-  .subtitle {
-    text-align: center;
-  }
-
-  .waves {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: -1;
-    width: 100vw;
-  }
-
-  .waves.top {
-    top: 0;
-    bottom: auto;
-  }
-
-  .wave-block {
-    padding: 50px 0px;
-    position: relative;
-  }
-
-  @media (max-width: 800px) {
-    .two-col {
-      display: block;
-    }
-
-    .card {
-      margin-bottom: 30px;
-    }
-  }
-
-  @media (max-width: 1440px) {
-    .center p {
-      color: gray;
-    }
-
-    h2.know-more {
-      color: gray;
-    }
-  }
+<style lang="scss">
+  @import "./styles.scss";
 </style>

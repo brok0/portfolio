@@ -1,0 +1,5 @@
+@mixin gradientText() {
+  background: var(--purple-to-blue-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

@@ -1,0 +1,43 @@
+.header {
+  padding: 30px;
+  padding-left: 0;
+  &__wrap {
+    z-index: 1;
+    top: 0;
+    position: sticky;
+    width: 100%;
+    background-color: var(--background-secondary);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  &__with-btn {
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    max-width: var(--content-width);
+
+    .button {
+      margin: 30px;
+    }
+  }
+
+  a {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-decoration: none;
+    margin-right: 40px;
+    font-weight: bold;
+    color: var(--accent-color);
+
+    &:visited {
+      color: var(--accent-color);
+    }
+
+    &:hover {
+      border-bottom: 2px solid var(--purple-accent);
+      font-weight: bolder;
+    }
+  }
+}
