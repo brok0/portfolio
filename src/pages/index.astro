@@ -12,43 +12,54 @@ import Skills from "../components/SkillsBlock/Skills.astro";
 <Layout title="Borys Hlynskyi">
   <Header />
   <main>
-    <h1 class="name">👋🏻 Hi, I'm Borys Hlynskyi</h1>
-    <h2 class="subhead">Web developer from Ukraine specializing in frontend</h2>
+    <section>
+      <h1 class="name">👋🏻 Hi, I'm Borys Hlynskyi</h1>
+      <h2 class="subhead">
+        Web developer from Ukraine specializing in frontend
+      </h2>
 
-    <Skills skills={data.skills} />
-    <h2 id="projects">My Projects 🧙🏻‍♂️</h2>
+      <Skills skills={data.skills} />
+    </section>
+    <section>
+      <h2 id="projects">My Projects 🧙🏻‍♂️</h2>
 
-    {data.projects.map((e) => <Project data={e} />)}
+      {data.projects.map((e) => <Project data={e} />)}
+    </section>
 
-    <Experience />
+    <section class="experience__section">
+      <Experience />
+    </section>
+    <section>
+      <h2 id="certifications">Certifications 👨🏻‍🏫</h2>
 
-    <h2 id="certifications">Certifications 👨🏻‍🏫</h2>
-
-    {
-      data.certificates.map((e) => (
-        <Certificate
-          title={e.title}
-          description={e.description}
-          link={e.link}
-        />
-      ))
-    }
-
-    <div class="waves-block" id="contacts">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 320"
-        class="waves top"
-        ><path fill="#0099ff" fill-opacity="1" d="M0,288L1440,192L1440,0L0,0Z"
-        ></path></svg
-      >
-
-      <div class="center">
-        <h2 class="know-more">Want to know more?</h2>
-        <p>Contact me at <b>bglinskii6@gmail.com</b></p>
-        <LinkButton link="mailto:bglinskii6@gmail.com" text="Send email" />
+      {
+        data.certificates.map((e) => (
+          <Certificate
+            title={e.title}
+            description={e.description}
+            link={e.link}
+          />
+        ))
+      }
+    </section>
+    <section class="contact__section">
+      <div class="waves-block contact" id="contacts">
+        <div class="contact__wrap">
+          <div class="contact__wrap--bg"></div>
+          <h2 class="contact__title">Let's Connect!</h2>
+          <p class="contact__subtitle">
+            Contact me at <b>bglinskii6@gmail.com</b> or <b>LinkedIn</b>
+          </p>
+          <div class="contact__buttons">
+            <LinkButton link="mailto:bglinskii6@gmail.com" text="Send email" />
+            <LinkButton
+              link="https://www.linkedin.com/in/borys-hlynskyi-16785b15b/"
+              text="LinkedIn profile"
+            />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 </Layout>
 

@@ -5,28 +5,32 @@ const animateSkills = () => {
 
   skillPills.forEach((pill, index) => {
     gsap.to(pill, {
-      scale: 1.2, // Scale up
-      //background: "linear-gradient(90deg,#9501ff 0%,#2450c1 100%)",
-      //color: "white",
-      borderColor: "#9501ff",
-      duration: 2,
-      delay: index * 3, // Stagger the animations
-      onComplete: () => {
-        // Change back to original state after the animation
-        gsap.to(pill, {
-          scale: 1,
-          color: "black",
-          borderColor: "#2450c1",
-          duration: 2,
-          onComplete: () => {
-            // After returning to original state, start the next animation
-            if (index === skillPills.length - 1) {
-              // After the last pill, restart the entire animation
-              animateSkills();
-            }
-          },
-        });
-      },
+      scale: 1.1, // Scale up
+      duration: 0.5,
+      delay: index * 0.6, // Stagger the animations
+    });
+
+    pill.addEventListener("mouseenter", () => {
+      gsap.to(pill, {
+        rotationZ: 10, // Tilt to the right
+        duration: 0.2,
+        ease: "power1.inOut",
+      });
+    });
+
+    pill.addEventListener("mouseleave", () => {
+      gsap.to(pill, {
+        rotationZ: -10, // Tilt to the left
+        duration: 0.2,
+        ease: "power1.inOut",
+        onComplete: () => {
+          gsap.to(pill, {
+            rotationZ: 0, // Return to original position
+            duration: 0.2,
+            ease: "power1.inOut",
+          });
+        },
+      });
     });
   });
 };

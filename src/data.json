@@ -1,5 +1,5 @@
 {
-  "skills": ["JavaScript", "Typescript", "CSS", "HTML"],
+  "skills": ["JavaScript", "React", "Vue", "Typescript", "CSS", "HTML", "Git"],
   "certificates": [
     {
       "title": "Meta Version Control",

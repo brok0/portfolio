@@ -9,14 +9,19 @@ body {
   margin: 0;
 }
 
-main {
+main > * {
   max-width: var(--content-width);
   margin: auto;
 }
 
 @media (max-width: 1200px) {
-  main {
-    max-width: 90%;
+  main > * {
+    max-width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  main > .waves-block.experience {
   }
 }
 

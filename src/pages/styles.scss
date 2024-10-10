@@ -1,17 +1,73 @@
 @import "../styles/mixins.scss";
 
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: white;
+.contact {
+  &.waves-block {
+    background-image: url("/public/contact-bg.svg");
+    background-size: cover;
+    padding-top: 150px;
+    padding-bottom: 150px;
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    margin: auto;
+    padding: 60px;
+    position: relative;
+    z-index: 1;
+    @media (max-width: 500px) {
+      text-align: center;
+      padding: 60px 20px;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+    @media (max-width: 500px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    @media (max-width: 500px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    .button {
+      font-size: 1.5rem;
+      padding: 20px;
+      margin: 0;
+    }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      .button {
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+  }
 }
 
 h2 {
-  &.know-more {
+  &.contact__title {
     margin-bottom: 0px;
-    color: white;
     border: unset;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    @include gradientText();
   }
   &.subhead {
     border-bottom: none;
@@ -73,5 +129,18 @@ h2 {
 
   h2.know-more {
     color: gray;
+  }
+}
+.contact__section {
+  max-width: unset;
+  margin: 0;
+}
+@media (max-width: 1000px) {
+  .experience__section {
+    background-color: var(--blue-accent);
+  }
+
+  .contact__section {
+    padding: 0;
   }
 }
