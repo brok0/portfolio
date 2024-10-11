@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
+
+html {
+  font-family: Roboto Mono, system-ui, sans-serif;
+  background-color: var(--background-light);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+main > * {
+  max-width: var(--content-width);
+  margin: auto;
+  scroll-margin-top: 80px;
+}
+
+@media (max-width: 1280px) {
+  main > * {
+    max-width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  line-height: var(--line-height);
+  color: var(--purple-accent);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  line-height: var(--line-height);
+}
+
+h3 {
+  font-size: var(--font-size-h3);
+  line-height: var(--line-height);
+}
+
+h4 {
+  font-size: var(--font-size-h4);
+  line-height: var(--line-height);
+}
+
+p {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height);
+}
+
+.title {
+  font-size: var(--font-size-title);
+}
+
+.subtitle {
+  font-size: var(--font-size-subtitle);
+}
+
+nav a {
+  font-size: var(--font-size-nav);
+}

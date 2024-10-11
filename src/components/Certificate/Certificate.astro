@@ -1,0 +1,36 @@
+---
+import LinkButton from "../LinkButton.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  links: Array<Object>;
+  author?: string;
+  classList?: string;
+}
+
+const { links, title, description, author, classList } = Astro.props;
+---
+
+<div class=`card__wrap ${classList} `>
+  <div class="card">
+    <div>
+      <h4>{title}</h4>
+      {
+        author && (
+          <p>
+            <b>Author:</b> {author}
+          </p>
+        )
+      }
+      <p>{description}</p>
+    </div>
+    <div class="card__links">
+      {links.map((link) => <LinkButton link={link.url} text={link.title} />)}
+    </div>
+  </div>
+</div>
+
+<style>
+  @import "./certificate.scss";
+</style>

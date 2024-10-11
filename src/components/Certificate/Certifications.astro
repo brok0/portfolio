@@ -1,0 +1,47 @@
+---
+import Certificate from "./Certificate.astro";
+
+export interface Props {
+  certificates: Array<Object>;
+}
+
+const { certificates } = Astro.props;
+---
+
+<h2>Certifications 👨🏻‍🏫</h2>
+
+{
+  certificates
+    .slice(0, 3)
+    .map((e) => (
+      <Certificate
+        title={e.title}
+        description={e.description}
+        links={e.links}
+        author={e.author}
+      />
+    ))
+}
+<div id="certification-more-content">
+  {
+    certificates
+      .slice(3)
+      .map((e) => (
+        <Certificate
+          title={e.title}
+          description={e.description}
+          links={e.links}
+          author={e.author}
+          classList="hidden"
+        />
+      ))
+  }
+</div>
+<button id="show-more">Show More</button>
+
+<script type="module" src="/src/components/Certificate/script.js"></script>
+
+<script type="module" is:inline>
+  import showMore from "/src/components/Certificate/script.js";
+  showMore();
+</script>

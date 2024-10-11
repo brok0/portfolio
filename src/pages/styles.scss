@@ -1,0 +1,164 @@
+@import "../styles/mixins.scss";
+
+.contact {
+  &.waves-block {
+    background-image: url("/contact-bg.svg");
+    background-size: cover;
+    padding-top: 150px;
+    padding-bottom: 150px;
+
+    @media (max-width: 500px) {
+      background-size: contain;
+    }
+  }
+  &__wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    width: fit-content;
+    margin: auto;
+    padding: 60px;
+    position: relative;
+    z-index: 1;
+    @media (max-width: 500px) {
+      text-align: center;
+      padding: 60px 20px;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+    @media (max-width: 500px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 2rem;
+    @media (max-width: 500px) {
+      font-size: 1rem;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    .button {
+      font-size: 1.5rem;
+      padding: 20px;
+      margin: 0;
+    }
+
+    &--mobile {
+      display: none;
+    }
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+      & &--mobile {
+        display: block;
+
+        .button {
+          font-size: 1rem;
+          padding: 10px;
+        }
+      }
+
+      .button {
+        font-size: 1rem;
+        padding: 10px;
+      }
+    }
+  }
+}
+
+h2 {
+  &.contact__title {
+    margin-bottom: 0px;
+    border: unset;
+    padding-top: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    @include gradientText();
+  }
+  &.subhead {
+    border-bottom: none;
+    margin: auto;
+    text-align: center;
+    @include gradientText();
+  }
+}
+
+.name {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+h2,
+h3 {
+  color: var(--text-secondary);
+}
+
+h2 {
+  width: fit-content;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  border-bottom: 10px solid #2450c1;
+}
+
+.subtitle {
+  text-align: center;
+}
+
+.waves {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: -1;
+  width: 100vw;
+  &.top {
+    top: 0;
+    bottom: auto;
+  }
+
+  &-block {
+    padding: 50px 0px;
+    position: relative;
+  }
+}
+
+@media (max-width: 800px) {
+  .card {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .center p {
+    color: gray;
+  }
+
+  h2.know-more {
+    color: gray;
+  }
+}
+.contact__section {
+  max-width: unset;
+  margin: 0;
+  padding: 0;
+}
+@media (max-width: 1000px) {
+  .experience__section {
+    background-color: var(--blue-accent);
+  }
+
+  .contact__section {
+    padding: 0;
+  }
+}

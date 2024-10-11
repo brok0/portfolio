@@ -1,0 +1,45 @@
+---
+import LinkButton from "../LinkButton.astro";
+
+type Project = {
+  title: string;
+  description: string;
+  codeLink: string;
+  demoLink: string;
+  img: string;
+  stack: Array<string>;
+};
+
+export interface Props {
+  data: Project;
+}
+
+const { title, description, img, codeLink, demoLink, stack } = Astro.props.data;
+---
+
+<div class="project">
+  <div class="content">
+    <p class="title">{title}</p>
+    <p>{description}</p>
+    <div class="stack">
+      {stack.map((e) => <div class="stack-item">{e}</div>)}
+    </div>
+    <div class="project__links">
+      {codeLink && <LinkButton link={codeLink} text={"Code ↗️"} />}
+      {demoLink && <LinkButton link={demoLink} text={"Demo ↗️"} />}
+    </div>
+  </div>
+  <div class="image" style={`background-image:url(${img})`}></div>
+</div>
+
+<style>
+  @import "./style.scss";
+</style>
+<!-- Link to your separate JS file -->
+<script type="module" src="/src/components/Project/script.js"></script>
+
+<!-- Initialize the card animations -->
+<script type="module">
+  import animateCards from "/src/components/Project/script.js";
+  animateCards();
+</script>

@@ -1,53 +1,103 @@
 {
+  "skills": ["JavaScript", "React", "Vue", "Typescript", "CSS", "HTML", "Git"],
   "certificates": [
     {
-      "title": "Meta Version Control",
-      "description":
-        "Learn how modern software developers collaborate across the world without messing up each other's code. You will look at the different version control systems and how to create an effective software development workflow. You will be introduced to some of the most commonly used Linux commands that you can use to work with files on your hard drive and create powerful workflows that will automate your work, saving you time and effort. ",
-      "link": "https://www.coursera.org/account/accomplishments/certificate/J44R89ZVS2AP"
+      "title": "Object-Oriented Design by University of Alberta",
+      "author": "University of Alberta",
+      "description": "This course takes Java beginners to the next level by covering object-oriented analysis and design. You will discover how to create modular, flexible, and reusable software, by applying object-oriented design principles and guidelines. And, you will be able to communicate these designs in a visual notation known as Unified Modelling Language (UML).",
+      "links": [
+        {
+          "title": "Course Link",
+          "url": "https://www.coursera.org/learn/object-oriented-design"
+        },
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/XU96H3CZHAA3"
+        }
+      ]
+    },
+
+    {
+      "title": "JavaScript Security Specialization",
+      "author": "Vladimir de Turckheim",
+      "description": "In this Specialization, we will investigate, prevent, and resolve JavaScript-related attacks and learn how to build safer JavaScript applications. JavaScript is a fundamental technology for building web applications and is also popular for building server-side, desktop, and even mobile applications. Most of this learning Specialization will cover front-end JavaScript; however, we will also consider Node.js.  After completing this Specialization, you will understand the diverse threats and protections of the JavaScript world",
+      "links": [
+        {
+          "title": "Course Link",
+          "url": "https://www.coursera.org/specializations/javascript-security"
+        },
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/GXEDEB3MQRYH"
+        }
+      ]
+    },
+
+    {
+      "title": "Version Control",
+      "author": "Meta",
+      "description": "Learn how modern software developers collaborate across the world without messing up each other's code. You will look at the different version control systems and how to create an effective software development workflow. You will be introduced to some of the most commonly used Linux commands that you can use to work with files on your hard drive and create powerful workflows that will automate your work, saving you time and effort. ",
+      "links": [
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/J44R89ZVS2AP"
+        }
+      ]
     },
     {
-      "title": "Programming with JavaScript",
-      "description":
-        "JavaScript is the programming language that powers the modern web. In this course, you will learn the basic concepts of web development with JavaScript. You will work with functions, objects, arrays, variables, data types, the HTML DOM, and much more. You will learn how to use JavaScript and discover interactive possibilities with modern JavaScript technologies. Finally, you will learn about the practice of testing code and how to write a unit test using Jest. ",
-      "link": "https://coursera.org/share/a6b4e3b42b00f210c5f64f7386228e05"
+      "title": "Programming with JavaScript ",
+      "author": "Meta",
+      "description": "JavaScript is the programming language that powers the modern web. In this course, you will learn the basic concepts of web development with JavaScript. You will work with functions, objects, arrays, variables, data types, the HTML DOM, and much more. You will learn how to use JavaScript and discover interactive possibilities with modern JavaScript technologies. Finally, you will learn about the practice of testing code and how to write a unit test using Jest. ",
+      "links": [
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/GQLSBACB83YK"
+        }
+      ]
     },
     {
-      "title": "JavaScript Security Part 1",
-      "description":
-        "This course covers XSS and Javascript Remote Code Execution and CSRF and Browser Security. ",
-      "link": "https://coursera.org/share/de455243b79c75a6b10e1a643c750ed6"
+      "title": "Introduction to Front-End Development",
+      "author": "Meta",
+      "description": "This course is part of the Meta Front-End Developer Professional Certificate. When you enroll in this course, you'll also be enrolled in this Professional Certificate. Learn new concepts from industry experts : Gain a foundational understanding of a subject or tool, Develop job-relevant skills with hands-on projects,Earn a shareable career certificate from Meta",
+      "links": [
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/M7SXBG5EGP4Y"
+        }
+      ]
     }
   ],
-  "projects":[
+  "projects": [
     {
-      "title":"Countries",
-      "description":"This project is also challenge from frontendmentor. Crafted with with Vue 3 and Vite. Small SPA to show countries and theirs information. Includes features like: sorting, search, light/dark mode",
-      "img":"countries.jpg",
-      "demoLink":"https://brok0.github.io/countries-vue/",
-      "codeLink":"https://github.com/brok0/countries-vue",
-      "stack":[
-        "Vue 3", "Vite", "TypeScript"
+      "title": "Countries",
+      "description": "This project is also challenge from frontendmentor. Crafted with with Vue 3 and Vite. Small SPA to show countries and theirs information. Includes features like: sorting, search, light/dark mode",
+      "img": "countries.jpg",
+      "demoLink": "https://brok0.github.io/countries-vue/",
+      "codeLink": "https://github.com/brok0/countries-vue",
+      "stack": ["Vue 3", "Vite", "TypeScript"]
+    },
+    {
+      "title": "Web Tutor",
+      "description": "Web tutor is solution that could bring student and tutor together easily. This is full stack application that inludes SSR frontend using react and backend with Prisma and PostGre DB",
+      "img": "web-tutor.jpg",
+      "codeLink": "https://github.com/brok0/web-tutor/tree/dev",
+      "stack": [
+        "React",
+        "Next",
+        "Prisma",
+        "PostGre",
+        "TypeScript",
+        "NextAuth",
+        "OAuth2"
       ]
     },
     {
-      "title":"Web Tutor",
-      "description":"Web tutor is solution that could bring student and tutor together easily. This is full stack application that inludes SSR frontend using react and backend with Prisma and PostGre DB",
-      "img":"web-tutor.jpg",
-      "codeLink":"https://github.com/brok0/web-tutor/tree/dev",
-      "stack":[
-        "React", "Next", "Prisma", "PostGre","TypeScript","NextAuth","OAuth2"
-      ]
-    },
-    {
-      "title":"Ecommerce product page",
-      "description":"As a part of challenge on frontendmentor.com. This page is fully responsive and created using only js html and css. No external libraries. It is really small project but It was fun to complete it.",
-      "img":"ecommercepage.jpg",
-      "demoLink":"https://brok0.github.io/ecommerce-product-page/#",
-      "codeLink":"https://github.com/brok0/ecommerce-product-page",
-      "stack":[
-        "Vanilla JS", "HTML", "CSS"
-      ]
+      "title": "Ecommerce product page",
+      "description": "As a part of challenge on frontendmentor.com. This page is fully responsive and created using only js html and css. No external libraries. It is really small project but It was fun to complete it.",
+      "img": "ecommercepage.jpg",
+      "demoLink": "https://brok0.github.io/ecommerce-product-page/#",
+      "codeLink": "https://github.com/brok0/ecommerce-product-page",
+      "stack": ["Vanilla JS", "HTML", "CSS"]
     }
   ]
 }
