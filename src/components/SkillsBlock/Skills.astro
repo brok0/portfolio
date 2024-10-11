@@ -1,5 +1,5 @@
 ---
-
+import "../../styles/skills.scss";
 type skills = Array<string>;
 
 export interface Props {
@@ -13,14 +13,4 @@ const { skills } = Astro.props;
   {skills.map((e) => <div class="skill">{e}</div>)}
 </div>
 
-<style lang="scss">
-  @import "./styles.scss";
-</style>
-
-<script type="module" src="/src/components/SkillsBlock/script.js"></script>
-
-<!-- Initialize the card animations -->
-<script type="module">
-  import animateSkills from "/src/components/SkillsBlock/script.js";
-  animateSkills();
-</script>
+<script src="./skills.js"></script>

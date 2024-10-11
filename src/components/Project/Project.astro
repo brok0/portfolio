@@ -1,5 +1,6 @@
 ---
 import LinkButton from "../LinkButton.astro";
+import "../../styles/project.scss";
 
 type Project = {
   title: string;
@@ -32,14 +33,4 @@ const { title, description, img, codeLink, demoLink, stack } = Astro.props.data;
   <div class="image" style={`background-image:url(${img})`}></div>
 </div>
 
-<style>
-  @import "./style.scss";
-</style>
-<!-- Link to your separate JS file -->
-<script type="module" src="/src/components/Project/script.js"></script>
-
-<!-- Initialize the card animations -->
-<script type="module">
-  import animateCards from "/src/components/Project/script.js";
-  animateCards();
-</script>
+<script src="./project.js"></script>

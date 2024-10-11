@@ -1,5 +1,6 @@
 ---
 import Certificate from "./Certificate.astro";
+import gsap from "gsap";
 
 export interface Props {
   certificates: Array<Object>;
@@ -39,9 +40,4 @@ const { certificates } = Astro.props;
 </div>
 <button id="show-more">Show More</button>
 
-<script type="module" src="/src/components/Certificate/script.js"></script>
-
-<script type="module" is:inline>
-  import showMore from "/src/components/Certificate/script.js";
-  showMore();
-</script>
+<script src="./certification.js"></script>

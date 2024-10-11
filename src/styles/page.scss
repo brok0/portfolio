@@ -115,24 +115,6 @@ h2 {
   text-align: center;
 }
 
-.waves {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, 0);
-  z-index: -1;
-  width: 100vw;
-  &.top {
-    top: 0;
-    bottom: auto;
-  }
-
-  &-block {
-    padding: 50px 0px;
-    position: relative;
-  }
-}
-
 @media (max-width: 800px) {
   .card {
     margin-bottom: 30px;

@@ -1,6 +1,6 @@
 ---
 import LinkButton from "../LinkButton.astro";
-
+import "../../styles/certificate.scss";
 export interface Props {
   title: string;
   description: string;
@@ -30,7 +30,3 @@ const { links, title, description, author, classList } = Astro.props;
     </div>
   </div>
 </div>
-
-<style>
-  @import "./certificate.scss";
-</style>

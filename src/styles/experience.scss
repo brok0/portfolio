@@ -1,10 +1,27 @@
-@import "../../styles/mixins.scss";
+@import "./mixins.scss";
 
 .experience {
   display: flex;
   gap: 40px;
   justify-content: space-evenly;
+  position: relative;
+  .waves {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: -1;
+    width: 100vw;
+    &.top {
+      top: 0;
+      bottom: auto;
+    }
 
+    &-block {
+      padding: 50px 0px;
+      position: relative;
+    }
+  }
   &__item {
     display: flex;
     justify-content: space-between;
