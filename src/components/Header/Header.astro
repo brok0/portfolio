@@ -10,7 +10,13 @@ import LinkButton from "../../components/LinkButton.astro";
       <a href="#certifications">Certifications</a>
       <a href="#contacts">Contacts</a>
     </nav>
-    <LinkButton link="mailto:bglinskii6@gmail.com" text="Contact me!" />
+    <LinkButton
+      download={{
+        link: "/files/CV_Borys_Hlynskyi.pdf",
+        file: "CV_Borys_Hlynskyi.pdf",
+      }}
+      text="Download CV"
+    />
   </div>
 </div>
 <style>

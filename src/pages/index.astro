@@ -2,14 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header/Header.astro";
 import data from "../data.json";
-import Certificate from "../components/Certificate/Certificate.astro";
 import Project from "../components/Project/Project.astro";
 import LinkButton from "../components/LinkButton.astro";
 import Experience from "../components/ExperienceBlock/Experience.astro";
 import Skills from "../components/SkillsBlock/Skills.astro";
+import Certifications from "../components/Certificate/Certifications.astro";
 ---
 
-<Layout title="Borys Hlynskyi">
+<Layout title="Web Developer - Borys Hlynskyi">
   <Header />
   <main>
     <section>
@@ -20,30 +20,23 @@ import Skills from "../components/SkillsBlock/Skills.astro";
 
       <Skills skills={data.skills} />
     </section>
-    <section>
-      <h2 id="projects">My Projects 🧙🏻‍♂️</h2>
+
+    <section id="projects">
+      <h2>My Projects 🧙🏻‍♂️</h2>
 
       {data.projects.map((e) => <Project data={e} />)}
     </section>
 
-    <section class="experience__section">
+    <section class="experience__section" id="experience">
       <Experience />
     </section>
-    <section>
-      <h2 id="certifications">Certifications 👨🏻‍🏫</h2>
 
-      {
-        data.certificates.map((e) => (
-          <Certificate
-            title={e.title}
-            description={e.description}
-            link={e.link}
-          />
-        ))
-      }
+    <section id="certifications">
+      <Certifications certificates={data.certificates} />
     </section>
-    <section class="contact__section">
-      <div class="waves-block contact" id="contacts">
+
+    <section class="contact__section" id="contacts">
+      <div class="waves-block contact">
         <div class="contact__wrap">
           <div class="contact__wrap--bg"></div>
           <h2 class="contact__title">Let's Connect!</h2>
@@ -56,6 +49,15 @@ import Skills from "../components/SkillsBlock/Skills.astro";
               link="https://www.linkedin.com/in/borys-hlynskyi-16785b15b/"
               text="LinkedIn profile"
             />
+            <div class="contact__buttons--mobile">
+              <LinkButton
+                download={{
+                  link: "/files/CV_Borys_Hlynskyi.pdf",
+                  file: "CV_Borys_Hlynskyi.pdf",
+                }}
+                text="Download CV"
+              />
+            </div>
           </div>
         </div>
       </div>

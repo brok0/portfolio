@@ -24,8 +24,10 @@ const { title, description, img, codeLink, demoLink, stack } = Astro.props.data;
     <div class="stack">
       {stack.map((e) => <div class="stack-item">{e}</div>)}
     </div>
-    {codeLink && <LinkButton link={codeLink} text={"Code ↗️"} />}
-    {demoLink && <LinkButton link={demoLink} text={"Demo ↗️"} />}
+    <div class="project__links">
+      {codeLink && <LinkButton link={codeLink} text={"Code ↗️"} />}
+      {demoLink && <LinkButton link={demoLink} text={"Demo ↗️"} />}
+    </div>
   </div>
   <div class="image" style={`background-image:url(${img})`}></div>
 </div>

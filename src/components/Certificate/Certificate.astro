@@ -4,19 +4,30 @@ import LinkButton from "../LinkButton.astro";
 export interface Props {
   title: string;
   description: string;
-  link: string;
+  links: Array<Object>;
+  author?: string;
+  classList?: string;
 }
 
-const { link, title, description } = Astro.props;
+const { links, title, description, author, classList } = Astro.props;
 ---
 
-<div class="card__wrap">
+<div class=`card__wrap ${classList} `>
   <div class="card">
     <div>
       <h4>{title}</h4>
+      {
+        author && (
+          <p>
+            <b>Author:</b> {author}
+          </p>
+        )
+      }
       <p>{description}</p>
     </div>
-    <LinkButton link={link} text={"Check Out"} />
+    <div class="card__links">
+      {links.map((link) => <LinkButton link={link.url} text={link.title} />)}
+    </div>
   </div>
 </div>
 

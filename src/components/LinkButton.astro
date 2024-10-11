@@ -1,13 +1,20 @@
 ---
 export interface Props {
-  link: string;
+  link?: string;
   text: string;
+  download?: Object;
 }
 
-const { link, text } = Astro.props;
+const { link, text, download } = Astro.props;
 ---
 
-<a href={link} class="button">{text}</a>
+<a
+  href={download ? download.link : link}
+  download={download ? download.file : undefined}
+  class="button"
+>
+  {text}
+</a>
 
 <style>
   .button {
