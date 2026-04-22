@@ -3,34 +3,34 @@ import LinkButton from "../LinkButton.astro";
 import "../../styles/project.scss";
 
 type Project = {
-  title: string;
-  description: string;
-  codeLink: string;
-  demoLink: string;
-  img: string;
-  stack: Array<string>;
+	title: string;
+	description: string;
+	codeLink: string;
+	demoLink?: string;
+	img: string;
+	stack: Array<string>;
 };
 
 export interface Props {
-  data: Project;
+	data: Project;
 }
 
 const { title, description, img, codeLink, demoLink, stack } = Astro.props.data;
 ---
 
 <div class="project">
-  <div class="content">
-    <p class="title">{title}</p>
-    <p>{description}</p>
-    <div class="stack">
-      {stack.map((e) => <div class="stack-item">{e}</div>)}
-    </div>
-    <div class="project__links">
-      {codeLink && <LinkButton link={codeLink} text={"Code ↗️"} />}
-      {demoLink && <LinkButton link={demoLink} text={"Demo ↗️"} />}
-    </div>
-  </div>
-  <div class="image" style={`background-image:url(${img})`}></div>
+	<div class="content">
+		<p class="title">{title}</p>
+		<p>{description}</p>
+		<div class="stack">
+			{stack.map((e) => <div class="stack-item">{e}</div>)}
+		</div>
+		<div class="project__links">
+			{codeLink && <LinkButton link={codeLink} text="Code ↗️" />}
+			{demoLink && <LinkButton link={demoLink} text="Demo ↗️" />}
+		</div>
+	</div>
+	<div class="image" style={`background-image:url(${img})`}></div>
 </div>
 
 <script src="./project.js"></script>

@@ -1,19 +1,20 @@
 .skills {
-  &__wrap {
-    display: flex;
-    flex-wrap: wrap;
-    margin: auto;
-    gap: 20px;
-    width: fit-content;
+	&__wrap {
+		display: flex;
+		flex-wrap: wrap;
+		margin: auto;
+		gap: 20px 30px;
+		width: fit-content;
+		justify-content: center;
 
-    .skill {
-      border: 0 solid var(--blue-accent);
-      background: var(--purple-to-blue-gradient);
-      color: white;
-      border-radius: 10px;
-      padding: 10px;
-      font-size: 20px;
-      cursor: pointer;
-    }
-  }
+		.skill {
+			border: 0 solid var(--blue-accent);
+			background: var(--purple-to-blue-gradient);
+			color: white;
+			border-radius: 10px;
+			padding: 10px;
+			font-size: 20px;
+			cursor: pointer;
+		}
+	}
 }

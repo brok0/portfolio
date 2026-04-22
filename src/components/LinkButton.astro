@@ -1,35 +1,35 @@
 ---
 export interface Props {
-  link?: string;
-  text: string;
-  download?: Object;
+	link?: string;
+	text: string;
+	download?: { link: string; file: string };
 }
 
 const { link, text, download } = Astro.props;
 ---
 
 <a
-  href={download ? download.link : link}
-  download={download ? download.file : undefined}
-  class="button"
+	href={download ? download.link : link}
+	download={download ? download.file : undefined}
+	class="button"
 >
-  {text}
+	{text}
 </a>
 
 <style>
-  .button {
-    display: inline-block;
-    padding: 10px;
-    height: fit-content;
-    margin-right: 30px;
-    border-radius: 10px;
-    background: var(--purple-accent);
-    color: white;
-    font-weight: bold;
-    text-decoration: none;
-  }
+	.button {
+		display: inline-block;
+		padding: 10px;
+		height: fit-content;
+		margin-right: 30px;
+		border-radius: 10px;
+		background: var(--purple-accent);
+		color: white;
+		font-weight: bold;
+		text-decoration: none;
+	}
 
-  .button:visited {
-    color: white;
-  }
+	.button:visited {
+		color: white;
+	}
 </style>

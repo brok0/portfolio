@@ -1,42 +1,45 @@
 ---
 import Certificate from "./Certificate.astro";
-import gsap from "gsap";
 
 export interface Props {
-  certificates: Array<Object>;
+	certificates: Array<{
+		title: string;
+		description: string;
+		links: Array<{ title: string; url: string }>;
+		author?: string;
+	}>;
 }
 
 const { certificates } = Astro.props;
 ---
 
-<h2>Certifications 👨🏻‍🏫</h2>
+<h2 class="section__heading">Certifications 👨🏻‍🏫</h2>
 
 {
-  certificates
-    .slice(0, 3)
-    .map((e) => (
-      <Certificate
-        title={e.title}
-        description={e.description}
-        links={e.links}
-        author={e.author}
-      />
-    ))
+	certificates
+		.slice(0, 3)
+		.map((e) => (
+			<Certificate
+				title={e.title}
+				description={e.description}
+				links={e.links}
+				author={e.author}
+			/>
+		))
 }
 <div id="certification-more-content">
-  {
-    certificates
-      .slice(3)
-      .map((e) => (
-        <Certificate
-          title={e.title}
-          description={e.description}
-          links={e.links}
-          author={e.author}
-          classList="hidden"
-        />
-      ))
-  }
+	{
+		certificates
+			.slice(3)
+			.map((e) => (
+				<Certificate
+					title={e.title}
+					description={e.description}
+					links={e.links}
+					author={e.author}
+				/>
+			))
+	}
 </div>
 <button id="show-more">Show More</button>
 

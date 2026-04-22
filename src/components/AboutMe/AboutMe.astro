@@ -1,0 +1,118 @@
+---
+import "../../styles/about.scss";
+
+const stats = [
+	{ number: "4+", label: "Years of experience" },
+	{ number: "10+", label: "Tech stack tools" },
+	{ number: "∞", label: "Problems solved" },
+];
+
+const focuses = [
+	{
+		icon: "⚡",
+		title: "Performance & DX",
+		subtitle: "Vite · TanStack Query · private npm libs",
+	},
+	{
+		icon: "♿",
+		title: "Accessibility & Quality",
+		subtitle: "a11y · test coverage · responsive design",
+	},
+	{
+		icon: "🤖",
+		title: "AI-powered workflows",
+		subtitle: "Leveraging AI tools for faster delivery",
+	},
+	{
+		icon: "🎨",
+		title: "Pixel-perfect implementation",
+		subtitle: "Figma → production with sharp eye",
+	},
+];
+---
+
+<section class="about" id="about">
+	<h2 class="section__heading">
+		About
+		<span>Me</span>
+	</h2>
+
+	<div class="about__grid">
+		<div class="about__bio-card">
+			<p class="about__bio-text">
+				<strong>Experienced Frontend Software Engineer</strong> with 4+ years of experience
+				building single-page and full-stack front-end applications using <strong
+					>React and TypeScript</strong
+				>. Skilled in developing enterprise web products, including research request
+				management platforms featuring <strong
+					>configurable form builders, role-based access control, customizable data
+					tables,</strong
+				> and embeddable forms.
+				<br /><br />
+				Actively follows advancements in <strong
+					>AI-powered development tools</strong
+				> to improve engineering efficiency, code quality, and delivery speed. Proficient
+				in <strong>Vite, Next.js, TanStack Query, React Hook Form,</strong> and Tailwind
+				CSS, and in shipping shared UI libraries via private npm registries.
+				<br /><br />
+				Experienced in agile (Kanban, Scrum), delivering <strong
+					>responsive, accessible interfaces</strong
+				> and solid test coverage. A collaborative team player who aligns technical decisions
+				with project goals, clarifies requirements with stakeholders, and proposes clear
+				options with trade-offs.
+			</p>
+		</div>
+
+		<div class="about__right">
+			<!-- Stats -->
+			<div class="about__stats">
+				{
+					stats.map((stat) => (
+						<div class="stat-card">
+							<div class="stat-card__number">{stat.number}</div>
+							<div class="stat-card__label">{stat.label}</div>
+						</div>
+					))
+				}
+			</div>
+
+			<div class="about__focuses">
+				<p class="focuses__title">What I focus on</p>
+				<div class="focuses__list">
+					{
+						focuses.map((item) => (
+							<div class="focus-item">
+								<div class="focus-item__icon">{item.icon}</div>
+								<div class="focus-item__text">
+									{item.title}
+									<em>{item.subtitle}</em>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+
+			<div class="about__availability">
+				<div class="availability__text">
+					<span class="availability__text__open">
+						<div class="availability__dot"></div>
+						<div>Open to new opportunities</div>
+					</span>
+
+					<span>· Remote-friendly</span>
+
+					<span class="availability__text__flag">
+						· Ukraine <img
+							src="Flag_of_Ukraine.svg"
+							alt="Ukraine"
+							class="flag-icon"
+						/>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<script src="./about.js"></script>

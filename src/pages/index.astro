@@ -9,60 +9,62 @@ import Skills from "../components/SkillsBlock/Skills.astro";
 import Certifications from "../components/Certificate/Certifications.astro";
 import "../styles/page.scss";
 import "../styles/global.scss";
+import AboutMe from "../components/AboutMe/AboutMe.astro";
 ---
 
 <Layout title="Web Developer - Borys Hlynskyi">
-  <Header />
-  <main>
-    <section>
-      <h1 class="name">👋🏻 Hi, I'm Borys Hlynskyi</h1>
-      <h2 class="subhead">
-        Web developer from Ukraine specializing in frontend
-      </h2>
+	<Header />
+	<main>
+		<section>
+			<h1 class="name">👋🏻 Hi, I'm Borys Hlynskyi</h1>
+			<h2 class="subhead">Web developer from Ukraine specializing in frontend</h2>
+			<Skills skills={data.skills} />
 
-      <Skills skills={data.skills} />
-    </section>
+			<AboutMe />
+		</section>
 
-    <section id="projects">
-      <h2>My Projects 🧙🏻‍♂️</h2>
+		<section id="projects">
+			<h2 class="section__heading">My <span>Projects</span> 🧙🏻‍♂️</h2>
 
-      {data.projects.map((e) => <Project data={e} />)}
-    </section>
+			{data.projects.map((e) => <Project data={e} />)}
+		</section>
 
-    <section class="experience__section" id="experience">
-      <Experience />
-    </section>
+		<section class="experience__section" id="experience">
+			<Experience />
+		</section>
 
-    <section id="certifications">
-      <Certifications certificates={data.certificates} />
-    </section>
+		<section id="certifications">
+			<Certifications certificates={data.certificates} />
+		</section>
 
-    <section class="contact__section" id="contacts">
-      <div class="waves-block contact">
-        <div class="contact__wrap">
-          <div class="contact__wrap--bg"></div>
-          <h2 class="contact__title">Let's Connect!</h2>
-          <p class="contact__subtitle">
-            Contact me at <b>bglinskii6@gmail.com</b> or <b>LinkedIn</b>
-          </p>
-          <div class="contact__buttons">
-            <LinkButton link="mailto:bglinskii6@gmail.com" text="Send email" />
-            <LinkButton
-              link="https://www.linkedin.com/in/borys-hlynskyi-16785b15b/"
-              text="LinkedIn profile"
-            />
-            <div class="contact__buttons--mobile">
-              <LinkButton
-                download={{
-                  link: "CV_Borys_Hlynskyi.pdf",
-                  file: "CV_Borys_Hlynskyi.pdf",
-                }}
-                text="Download CV"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+		<section class="contact__section" id="contacts">
+			<div class="waves-block contact">
+				<div class="contact__wrap">
+					<div class="contact__wrap--bg"></div>
+					<h2 class="contact__title">Let's Connect!</h2>
+					<p class="contact__subtitle">
+						Contact me at <b>bglinskii6@gmail.com</b> or <b>LinkedIn</b>
+					</p>
+					<div class="contact__buttons">
+						<LinkButton link="mailto:bglinskii6@gmail.com" text="Send email" />
+						<LinkButton
+							link="https://www.linkedin.com/in/borys-hlynskyi-16785b15b/"
+							text="LinkedIn profile"
+						/>
+						<div class="contact__buttons--mobile">
+							<LinkButton
+								download={{
+									link: "CV_Borys_Hlynskyi.pdf",
+									file: "CV_Borys_Hlynskyi.pdf",
+								}}
+								text="Download CV"
+							/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
 </Layout>
+
+<script src="./index.js"></script>
