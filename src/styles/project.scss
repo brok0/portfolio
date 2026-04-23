@@ -24,12 +24,16 @@
 			margin: 0;
 		}
 	}
+
+	.desc {
+		color: var(--text-primary);
+	}
 }
 .title {
-	//font-size: 26px;
 	font-weight: bolder;
 	margin: 0;
 	margin-bottom: 20px;
+	color: var(--text-primary);
 }
 
 .codelink {

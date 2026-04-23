@@ -13,6 +13,7 @@
 		p {
 			margin: 10px;
 			margin-left: 0;
+			color: var(--text-primary);
 		}
 
 		@media (max-width: 500px) {
@@ -52,7 +53,7 @@
 		h3 {
 			margin: 12px;
 			margin-left: 0;
-			color: var(--purple-accent);
+			color: var(--text-primary);
 		}
 	}
 
@@ -60,7 +61,7 @@
 		margin-top: 0;
 		padding-top: 0;
 		b {
-			@include gradientText();
+			color: var(--blue-accent);
 		}
 	}
 }
