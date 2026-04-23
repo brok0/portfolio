@@ -1,0 +1,97 @@
+const uk = {
+	locale: "uk",
+	meta: {
+		title: "Веб-розробник - Борис Глинський",
+	},
+	header: {
+		about: "Про мене",
+		projects: "Проєкти",
+		experience: "Досвід",
+		certifications: "Сертифікати",
+		contacts: "Контакти",
+		downloadCv: "Завантажити CV",
+		switcherLabel: "Мова",
+	},
+	hero: {
+		greeting: "Привіт, я Глинський Борис",
+		subtitle: "Веб-розробник з України, спеціалізація - frontend",
+	},
+	sections: {
+		projectsPrefix: "Мої",
+		projectsHighlight: "проєкти",
+		contactTitle: "Зв'яжіться зі мною!",
+		contactSubtitle: "Напишіть мені на",
+		contactOr: "або",
+		linkedinName: "LinkedIn",
+		sendEmail: "Надіслати email",
+		linkedinProfile: "Профіль LinkedIn",
+	},
+	about: {
+		headingPrefix: "Про",
+		headingHighlight: "мене",
+		paragraphs: [
+			"Досвідчений Frontend Software Engineer з понад 4 роками досвіду створення SPA та full-stack фронтенд застосунків на React і TypeScript. Маю досвід розробки enterprise вебпродуктів, зокрема платформ керування доступами на finanace research з конструктором форм, role-based access control, налаштовуваними таблицями даних та вбудовуваними формами.",
+			"Активно відстежую розвиток AI-інструментів для розробки, щоб покращувати ефективність інженерних процесів, якість коду та швидкість виконання. Працюю з Vite, Next.js, TanStack Query, React Hook Form і Tailwind CSS, а також з власними UI-бібліотекам в приватних npm package.",
+			"Працював у agile процесах (Kanban, Scrum), створюю адаптивні та доступні інтерфейси з надійним тестовим покриттям. Я командний гравець, який узгоджує технічні рішення з цілями продукту, уточнює вимоги зі стейкхолдерами та пропонує зрозумілі варіанти вирішення завданнь.",
+		],
+		stats: [
+			{ number: "4+", label: "Років досвіду" },
+			{ number: "10+", label: "Інструментів у стеку" },
+			{ number: "∞", label: "Розв'язаних задач" },
+		],
+		focusesTitle: "Речі на яких я фокусуюсь",
+		focuses: [
+			{
+				icon: "⚡",
+				title: "Продуктивність та DX",
+				subtitle: "Vite · TanStack Query · приватні npm-бібліотеки",
+			},
+			{
+				icon: "♿",
+				title: "Доступність та якість",
+				subtitle: "a11y · тестове покриття · адаптивний дизайн",
+			},
+			{
+				icon: "🤖",
+				title: "AI-орієнтовані процеси",
+				subtitle: "Використовую AI-інструменти для швидшої розробки",
+			},
+			{
+				icon: "🎨",
+				title: "Pixel-perfect реалізація",
+				subtitle: "Figma -> production з увагою до деталей",
+			},
+		],
+		availabilityOpen: "Відкритий до нових можливостей",
+		availabilityRemote: "Працюю віддалено",
+		availabilityCountry: "Україна",
+	},
+	experience: {
+		experienceHeading: "Досвід",
+		experienceHeaderFirst: "Професійний ",
+		experienceHeaderSecond: "досвід",
+		educationHeading: "Освіта",
+		company: "Exadel",
+		roleSenior: "Software Engineer",
+		roleJunior: "Junior Software Engineer",
+		periodSenior: "Жов 2023 - дотепер",
+		periodJunior: "Жов 2021 - Вер 2023",
+		mastersTitle: "Магістратура ЗУНУ",
+		bachelorsTitle: "Бакалаврат ЗУНУ",
+		degreeField: "Інженерія програмного забезпечення",
+		mastersPeriod: "2022 - 2023",
+		bachelorsPeriod: "2018 - 2022",
+	},
+	certifications: {
+		heading: "Сертифікати",
+		showMore: "Показати більше",
+		showLess: "Показати менше",
+		authorLabel: "Автор",
+	},
+	project: {
+		code: "Код",
+		demo: "Демо",
+	},
+} as const;
+
+export default uk;

@@ -1,65 +1,38 @@
 ---
 import "../../styles/about.scss";
 
-const stats = [
-	{ number: "4+", label: "Years of experience" },
-	{ number: "10+", label: "Tech stack tools" },
-	{ number: "∞", label: "Problems solved" },
-];
+export interface Props {
+	texts: {
+		headingPrefix: string;
+		headingHighlight: string;
+		paragraphs: readonly string[];
+		stats: ReadonlyArray<{ number: string; label: string }>;
+		focusesTitle: string;
+		focuses: ReadonlyArray<{ icon: string; title: string; subtitle: string }>;
+		availabilityOpen: string;
+		availabilityRemote: string;
+		availabilityCountry: string;
+	};
+}
 
-const focuses = [
-	{
-		icon: "⚡",
-		title: "Performance & DX",
-		subtitle: "Vite · TanStack Query · private npm libs",
-	},
-	{
-		icon: "♿",
-		title: "Accessibility & Quality",
-		subtitle: "a11y · test coverage · responsive design",
-	},
-	{
-		icon: "🤖",
-		title: "AI-powered workflows",
-		subtitle: "Leveraging AI tools for faster delivery",
-	},
-	{
-		icon: "🎨",
-		title: "Pixel-perfect implementation",
-		subtitle: "Figma → production with sharp eye",
-	},
-];
+const { texts } = Astro.props;
+const flagIconPath = `${import.meta.env.BASE_URL}Flag_of_Ukraine.svg`;
 ---
 
 <section class="about" id="about">
 	<h2 class="section__heading">
-		About
-		<span>Me</span>
+		{texts.headingPrefix}
+		<span>{texts.headingHighlight}</span> 😸
 	</h2>
 
 	<div class="about__grid">
 		<div class="about__bio-card">
 			<p class="about__bio-text">
-				<strong>Experienced Frontend Software Engineer</strong> with 4+ years of experience
-				building single-page and full-stack front-end applications using <strong
-					>React and TypeScript</strong
-				>. Skilled in developing enterprise web products, including research request
-				management platforms featuring <strong
-					>configurable form builders, role-based access control, customizable data
-					tables,</strong
-				> and embeddable forms.
+				{texts.paragraphs[0]}
 				<br /><br />
-				Actively follows advancements in <strong
-					>AI-powered development tools</strong
-				> to improve engineering efficiency, code quality, and delivery speed. Proficient
-				in <strong>Vite, Next.js, TanStack Query, React Hook Form,</strong> and Tailwind
-				CSS, and in shipping shared UI libraries via private npm registries.
+				{texts.paragraphs[1]}
 				<br /><br />
-				Experienced in agile (Kanban, Scrum), delivering <strong
-					>responsive, accessible interfaces</strong
-				> and solid test coverage. A collaborative team player who aligns technical decisions
-				with project goals, clarifies requirements with stakeholders, and proposes clear
-				options with trade-offs.
+				{texts.paragraphs[2]}
 			</p>
 		</div>
 
@@ -67,7 +40,7 @@ const focuses = [
 			<!-- Stats -->
 			<div class="about__stats">
 				{
-					stats.map((stat) => (
+					texts.stats.map((stat) => (
 						<div class="stat-card">
 							<div class="stat-card__number">{stat.number}</div>
 							<div class="stat-card__label">{stat.label}</div>
@@ -77,10 +50,10 @@ const focuses = [
 			</div>
 
 			<div class="about__focuses">
-				<p class="focuses__title">What I focus on</p>
+				<p class="focuses__title">{texts.focusesTitle}</p>
 				<div class="focuses__list">
 					{
-						focuses.map((item) => (
+						texts.focuses.map((item) => (
 							<div class="focus-item">
 								<div class="focus-item__icon">{item.icon}</div>
 								<div class="focus-item__text">
@@ -97,15 +70,16 @@ const focuses = [
 				<div class="availability__text">
 					<span class="availability__text__open">
 						<div class="availability__dot"></div>
-						<div>Open to new opportunities</div>
+						<div>{texts.availabilityOpen}</div>
 					</span>
 
-					<span>· Remote-friendly</span>
+					<span>· {texts.availabilityRemote}</span>
 
 					<span class="availability__text__flag">
-						· Ukraine <img
-							src="Flag_of_Ukraine.svg"
-							alt="Ukraine"
+						· {texts.availabilityCountry}
+						<img
+							src={flagIconPath}
+							alt={texts.availabilityCountry}
 							class="flag-icon"
 						/>
 					</span>

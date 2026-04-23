@@ -1,0 +1,118 @@
+{
+	"skills": [
+		"TypeScript",
+		"React",
+		"Tailwind",
+		"React Query",
+		"React Hook Form",
+		"Google Places",
+		"Zustand",
+		"Axios",
+		"AG Grid",
+		"11ty",
+		"Vite",
+		"i18n",
+		"DnD",
+		"NextJs",
+		"shad/cn",
+		"a11y"
+	],
+	"certificates": [
+		{
+			"title": "Object-Oriented Design від University of Alberta",
+			"author": "University of Alberta",
+			"description": "Цей курс виводить початківців у Java на новий рівень через об'єктно-орієнтований аналіз і проєктування. Ви навчитесь створювати модульне, гнучке та повторно використовуване ПЗ, застосовуючи принципи й підходи OOP. Також зможете описувати рішення у візуальній нотації UML.",
+			"links": [
+				{
+					"title": "Посилання на курс",
+					"url": "https://www.coursera.org/learn/object-oriented-design"
+				},
+				{
+					"title": "Сертифікат",
+					"url": "https://www.coursera.org/account/accomplishments/certificate/XU96H3CZHAA3"
+				}
+			]
+		},
+		{
+			"title": "Спеціалізація JavaScript Security",
+			"author": "Vladimir de Turckheim",
+			"description": "У цій спеціалізації ми досліджуємо, попереджаємо та усуваємо атаки, пов'язані з JavaScript, і вчимось будувати безпечніші JavaScript-застосунки. JavaScript є базовою технологією для веброзробки, а також популярний на сервері, десктопі та мобільних платформах. Більшість матеріалу присвячена фронтенду, але також розглядається Node.js. Після завершення ви краще розумітимете загрози та способи захисту в екосистемі JavaScript.",
+			"links": [
+				{
+					"title": "Посилання на курс",
+					"url": "https://www.coursera.org/specializations/javascript-security"
+				},
+				{
+					"title": "Сертифікат",
+					"url": "https://www.coursera.org/account/accomplishments/certificate/GXEDEB3MQRYH"
+				}
+			]
+		},
+		{
+			"title": "Version Control",
+			"author": "Meta",
+			"description": "Курс про те, як сучасні розробники співпрацюють над кодом без конфліктів. Ви ознайомитесь із системами контролю версій і навчитесь будувати ефективний процес розробки. Також вивчите поширені Linux-команди для роботи з файлами та автоматизації рутини.",
+			"links": [
+				{
+					"title": "Сертифікат",
+					"url": "https://www.coursera.org/account/accomplishments/certificate/J44R89ZVS2AP"
+				}
+			]
+		},
+		{
+			"title": "Programming with JavaScript",
+			"author": "Meta",
+			"description": "JavaScript - мова програмування, що рухає сучасний веб. У цьому курсі ви вивчаєте базові концепції веброзробки з JavaScript: функції, об'єкти, масиви, змінні, типи даних, HTML DOM та інше. Окремо розглядається тестування та написання unit-тестів у Jest.",
+			"links": [
+				{
+					"title": "Сертифікат",
+					"url": "https://www.coursera.org/account/accomplishments/certificate/GQLSBACB83YK"
+				}
+			]
+		},
+		{
+			"title": "Introduction to Front-End Development",
+			"author": "Meta",
+			"description": "Цей курс входить до професійного сертифіката Meta Front-End Developer. Він дає фундаментальні знання, практичні завдання та навички, потрібні для роботи. Після завершення ви отримуєте сертифікат, яким можна ділитися.",
+			"links": [
+				{
+					"title": "Сертифікат",
+					"url": "https://www.coursera.org/account/accomplishments/certificate/M7SXBG5EGP4Y"
+				}
+			]
+		}
+	],
+	"projects": [
+		{
+			"title": "Countries",
+			"description": "Цей проєкт виконаний як челендж Frontend Mentor. Створений на Vue 3 та Vite. Невеликий SPA, що показує країни та інформацію про них, із пошуком, сортуванням і перемикачем світлої/темної теми.",
+			"img": "countries.jpg",
+			"demoLink": "https://brok0.github.io/countries-vue/",
+			"codeLink": "https://github.com/brok0/countries-vue",
+			"stack": ["Vue 3", "Vite", "TypeScript"]
+		},
+		{
+			"title": "Web Tutor",
+			"description": "Web Tutor - рішення, що допомагає швидше поєднувати студентів і репетиторів. Це full-stack застосунок із SSR фронтендом на React та бекендом на Prisma і PostgreSQL.",
+			"img": "web-tutor.jpg",
+			"codeLink": "https://github.com/brok0/web-tutor/tree/dev",
+			"stack": [
+				"React",
+				"Next",
+				"Prisma",
+				"PostGre",
+				"TypeScript",
+				"NextAuth",
+				"OAuth2"
+			]
+		},
+		{
+			"title": "Ecommerce product page",
+			"description": "Частина челенджу з frontendmentor.com. Сторінка повністю адаптивна і створена на нативних технологіях - JS, HTML та CSS без зовнішніх бібліотек. Невеликий, але цікавий проєкт.",
+			"img": "ecommercepage.jpg",
+			"demoLink": "https://brok0.github.io/ecommerce-product-page/#",
+			"codeLink": "https://github.com/brok0/ecommerce-product-page",
+			"stack": ["Vanilla JS", "HTML", "CSS"]
+		}
+	]
+}

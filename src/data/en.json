@@ -1,0 +1,110 @@
+{
+  "skills": [
+    "TypeScript",
+    "React",
+    "Tailwind",
+    "React Query",
+    "React Hook Form",
+    "Google Places",
+    "Zustand",
+    "Axios",
+    "AG Grid",
+    "11ty",
+    "Vite",
+    "i18n",
+    "DnD",
+    "NextJs",
+    "shad/cn",
+    "a11y"
+  ],
+  "certificates": [
+    {
+      "title": "Object-Oriented Design by University of Alberta",
+      "author": "University of Alberta",
+      "description": "This course takes Java beginners to the next level by covering object-oriented analysis and design. You will discover how to create modular, flexible, and reusable software by applying object-oriented design principles and guidelines. You will also be able to communicate these designs in a visual notation known as Unified Modelling Language (UML).",
+      "links": [
+        {
+          "title": "Course Link",
+          "url": "https://www.coursera.org/learn/object-oriented-design"
+        },
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/XU96H3CZHAA3"
+        }
+      ]
+    },
+    {
+      "title": "JavaScript Security Specialization",
+      "author": "Vladimir de Turckheim",
+      "description": "In this specialization, we investigate, prevent, and resolve JavaScript-related attacks and learn how to build safer JavaScript applications. JavaScript is a fundamental technology for building web applications and is also popular for server-side, desktop, and mobile applications. Most of this specialization covers front-end JavaScript, while also considering Node.js. After completing this specialization, you will understand diverse threats and protections in the JavaScript ecosystem.",
+      "links": [
+        {
+          "title": "Course Link",
+          "url": "https://www.coursera.org/specializations/javascript-security"
+        },
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/GXEDEB3MQRYH"
+        }
+      ]
+    },
+    {
+      "title": "Version Control",
+      "author": "Meta",
+      "description": "Learn how modern software developers collaborate worldwide without breaking each other's code. You will explore version control systems and how to create an effective software development workflow. You will also be introduced to common Linux commands for working with files and automating your workflows to save time and effort.",
+      "links": [
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/J44R89ZVS2AP"
+        }
+      ]
+    },
+    {
+      "title": "Programming with JavaScript",
+      "author": "Meta",
+      "description": "JavaScript is the programming language that powers the modern web. In this course, you learn core concepts of web development with JavaScript. You work with functions, objects, arrays, variables, data types, the HTML DOM, and more. You also learn about testing practices and writing unit tests with Jest.",
+      "links": [
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/GQLSBACB83YK"
+        }
+      ]
+    },
+    {
+      "title": "Introduction to Front-End Development",
+      "author": "Meta",
+      "description": "This course is part of the Meta Front-End Developer Professional Certificate. It helps build foundational understanding with industry-led content, hands-on projects, and job-relevant skills. You also earn a shareable career certificate from Meta.",
+      "links": [
+        {
+          "title": "Certificate",
+          "url": "https://www.coursera.org/account/accomplishments/certificate/M7SXBG5EGP4Y"
+        }
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "Countries",
+      "description": "This project is a Frontend Mentor challenge. Built with Vue 3 and Vite. A small SPA showing countries and their information with search, sorting, and light/dark mode.",
+      "img": "countries.jpg",
+      "demoLink": "https://brok0.github.io/countries-vue/",
+      "codeLink": "https://github.com/brok0/countries-vue",
+      "stack": ["Vue 3", "Vite", "TypeScript"]
+    },
+    {
+      "title": "Web Tutor",
+      "description": "Web Tutor is a solution to connect students and tutors more easily. It is a full-stack application with an SSR React frontend and backend built with Prisma and PostgreSQL.",
+      "img": "web-tutor.jpg",
+      "codeLink": "https://github.com/brok0/web-tutor/tree/dev",
+      "stack": ["React", "Next", "Prisma", "PostGre", "TypeScript", "NextAuth", "OAuth2"]
+    },
+    {
+      "title": "Ecommerce product page",
+      "description": "Part of a Frontend Mentor challenge. The page is fully responsive and built with plain JS, HTML, and CSS, without external libraries. Small project, fun to build.",
+      "img": "ecommercepage.jpg",
+      "demoLink": "https://brok0.github.io/ecommerce-product-page/#",
+      "codeLink": "https://github.com/brok0/ecommerce-product-page",
+      "stack": ["Vanilla JS", "HTML", "CSS"]
+    }
+  ]
+}

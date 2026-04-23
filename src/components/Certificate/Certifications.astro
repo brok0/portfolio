@@ -8,12 +8,18 @@ export interface Props {
 		links: Array<{ title: string; url: string }>;
 		author?: string;
 	}>;
+	texts: {
+		heading: string;
+		showMore: string;
+		showLess: string;
+		authorLabel: string;
+	};
 }
 
-const { certificates } = Astro.props;
+const { certificates, texts } = Astro.props;
 ---
 
-<h2 class="section__heading">Certifications 👨🏻‍🏫</h2>
+<h2 class="section__heading">{texts.heading} 👨🏻‍🏫</h2>
 
 {
 	certificates
@@ -24,6 +30,7 @@ const { certificates } = Astro.props;
 				description={e.description}
 				links={e.links}
 				author={e.author}
+				authorLabel={texts.authorLabel}
 			/>
 		))
 }
@@ -37,10 +44,13 @@ const { certificates } = Astro.props;
 					description={e.description}
 					links={e.links}
 					author={e.author}
+					authorLabel={texts.authorLabel}
 				/>
 			))
 	}
 </div>
-<button id="show-more">Show More</button>
+<button id="show-more" data-more={texts.showMore} data-less={texts.showLess}>
+	{texts.showMore}
+</button>
 
 <script src="./certification.js"></script>

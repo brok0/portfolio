@@ -2,7 +2,7 @@ import { gsap } from "gsap";
 import { applyButtonTilt } from "../../utils/buttonTilt";
 let isVisible = false;
 
-function toggle(cardContainer, button, cards) {
+function toggle(cardContainer, button, cards, showMoreText, showLessText) {
   if (!cardContainer || !button || !cards.length) return;
 
   gsap.killTweensOf([cardContainer, cards]);
@@ -22,7 +22,7 @@ function toggle(cardContainer, button, cards) {
       duration: 0.5,
       ease: "power2.inOut",
     });
-    button.textContent = "Show More";
+    button.textContent = showMoreText;
     button.classList.remove("expanded");
   } else {
     gsap.fromTo(
@@ -48,7 +48,7 @@ function toggle(cardContainer, button, cards) {
         ease: "power2.out",
       }
     );
-    button.textContent = "Show Less";
+    button.textContent = showLessText;
     button.classList.add("expanded");
   }
   isVisible = !isVisible;
@@ -58,6 +58,8 @@ if (typeof document !== "undefined") {
   const cardContainer = document.getElementById("certification-more-content");
   const button = document.getElementById("show-more");
   const cards = cardContainer ? Array.from(cardContainer.children) : [];
+  const showMoreText = button?.dataset.more || "Show More";
+  const showLessText = button?.dataset.less || "Show Less";
 
   if (cardContainer) {
     gsap.set(cardContainer, {
@@ -68,7 +70,9 @@ if (typeof document !== "undefined") {
   }
 
   if (button) {
-    button.addEventListener("click", () => toggle(cardContainer, button, cards));
+    button.addEventListener("click", () =>
+      toggle(cardContainer, button, cards, showMoreText, showLessText)
+    );
   }
 
   applyButtonTilt(".card__links .button");

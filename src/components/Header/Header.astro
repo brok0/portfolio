@@ -1,23 +1,153 @@
 ---
 import LinkButton from "../../components/LinkButton.astro";
 import "../../styles/header.scss";
+
+export interface Props {
+	labels: {
+		about: string;
+		projects: string;
+		experience: string;
+		certifications: string;
+		contacts: string;
+		downloadCv: string;
+		switcherLabel: string;
+	};
+	currentLocale: "en" | "uk";
+}
+
+const { labels, currentLocale } = Astro.props;
+const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
+const themeSwitcherLabel =
+	currentLocale === "uk" ? "Перемкнути тему" : "Toggle theme";
+const menuToggleLabel =
+	currentLocale === "uk" ? "Перемкнути меню навігації" : "Toggle navigation menu";
 ---
 
 <div class="header__wrap">
+	<div class="header__lang-switcher" aria-label={labels.switcherLabel}>
+		<a
+			href="/portfolio/"
+			class={currentLocale === "en"
+				? "header__lang-link is-active"
+				: "header__lang-link"}
+		>
+			EN
+		</a>
+		<a
+			href="/portfolio/uk/"
+			class={currentLocale === "uk"
+				? "header__lang-link is-active"
+				: "header__lang-link"}
+		>
+			UA
+		</a>
+		<button
+			type="button"
+			class="header__theme-toggle"
+			data-theme-toggle
+			aria-label={themeSwitcherLabel}
+			aria-pressed="false"
+			title={themeSwitcherLabel}
+		>
+			<span class="header__theme-toggle-icon" data-theme-icon>🌙</span>
+		</button>
+	</div>
 	<div class="header__with-btn">
+		<button
+			type="button"
+			class="header__menu-toggle"
+			data-menu-toggle
+			aria-label={menuToggleLabel}
+			aria-expanded="false"
+			aria-controls="mobile-navigation-menu"
+		>
+			<span class="header__menu-toggle-line"></span>
+			<span class="header__menu-toggle-line"></span>
+			<span class="header__menu-toggle-line"></span>
+		</button>
 		<nav class="header">
-			<a href="#about">About</a>
-			<a href="#projects">Projects</a>
-			<a href="#experience">Experience</a>
-			<a href="#certifications">Certifications</a>
-			<a href="#contacts">Contacts</a>
+			<a href="#about">{labels.about}</a>
+			<a href="#projects">{labels.projects}</a>
+			<a href="#experience">{labels.experience}</a>
+			<a href="#certifications">{labels.certifications}</a>
+			<a href="#contacts">{labels.contacts}</a>
 		</nav>
 		<LinkButton
 			download={{
-				link: "CV_Borys_Hlynskyi.pdf",
+				link: cvPath,
 				file: "CV_Borys_Hlynskyi.pdf",
 			}}
-			text="Download CV"
+			text={labels.downloadCv}
 		/>
+		<div class="header__mobile-menu" id="mobile-navigation-menu" data-mobile-menu>
+			<nav class="header__mobile-nav">
+				<a href="#about">{labels.about}</a>
+				<a href="#projects">{labels.projects}</a>
+				<a href="#experience">{labels.experience}</a>
+				<a href="#certifications">{labels.certifications}</a>
+				<a href="#contacts">{labels.contacts}</a>
+			</nav>
+			<LinkButton
+				download={{
+					link: cvPath,
+					file: "CV_Borys_Hlynskyi.pdf",
+				}}
+				text={labels.downloadCv}
+			/>
+		</div>
 	</div>
 </div>
+
+<script>
+	const themeToggle = document.querySelector("[data-theme-toggle]");
+	const iconNode = document.querySelector("[data-theme-icon]");
+	const menuToggle = document.querySelector("[data-menu-toggle]");
+	const mobileMenu = document.querySelector("[data-mobile-menu]");
+	const mobileMenuLinks = document.querySelectorAll("[data-mobile-menu] a");
+	const storageKey = "theme";
+
+	const syncThemeControl = (theme) => {
+		if (!themeToggle || !iconNode) return;
+		themeToggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+		iconNode.textContent = theme === "dark" ? "☀️" : "🌙";
+	};
+
+	const getCurrentTheme = () => {
+		const current = document.documentElement.dataset.theme;
+		return current === "dark" ? "dark" : "light";
+	};
+
+	if (themeToggle) {
+		syncThemeControl(getCurrentTheme());
+		themeToggle.addEventListener("click", () => {
+			const nextTheme = getCurrentTheme() === "dark" ? "light" : "dark";
+			document.documentElement.dataset.theme = nextTheme;
+			localStorage.setItem(storageKey, nextTheme);
+			syncThemeControl(nextTheme);
+		});
+	}
+
+	const setMobileMenuState = (isOpen) => {
+		if (!menuToggle || !mobileMenu) return;
+		menuToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+		mobileMenu.classList.toggle("is-open", isOpen);
+		document.body.classList.toggle("menu-open", isOpen);
+	};
+
+	if (menuToggle && mobileMenu) {
+		menuToggle.addEventListener("click", () => {
+			const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+			setMobileMenuState(!isOpen);
+		});
+
+		mobileMenuLinks.forEach((link) => {
+			link.addEventListener("click", () => setMobileMenuState(false));
+		});
+
+		window.addEventListener("resize", () => {
+			if (window.innerWidth >= 1024) {
+				setMobileMenuState(false);
+			}
+		});
+	}
+</script>

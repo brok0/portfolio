@@ -1,90 +1,249 @@
 @import "./mixins.scss";
 
 .experience {
-  display: flex;
-  gap: 40px;
-  justify-content: space-evenly;
-  position: relative;
-  .waves {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 0);
-    z-index: -1;
-    width: 100vw;
-    &.top {
-      top: 0;
-      bottom: auto;
-    }
+	display: flex;
+	gap: 40px;
+	justify-content: center;
+	position: relative;
 
-    &-block {
-      padding: 50px 0px;
-      position: relative;
-    }
-  }
-  &__item {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    p {
-      margin: 10px;
-      margin-left: 0;
-    }
+	&__item {
+		display: flex;
+		justify-content: space-between;
+		gap: 20px;
+		p {
+			margin: 10px;
+			margin-left: 0;
+		}
 
-    @media (max-width: 500px) {
-      flex-direction: column;
-      gap: 0;
-    }
-  }
+		@media (max-width: 500px) {
+			flex-direction: column;
+			gap: 0;
+		}
+	}
 
-  &__card {
-    border-radius: 10px;
-    background-color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-image: linear-gradient(
-        90deg,
-        var(--purple-accent) 50%,
-        transparent 50%
-      ),
-      linear-gradient(90deg, var(--purple-accent) 50%, transparent 50%),
-      linear-gradient(0deg, var(--purple-accent) 50%, transparent 50%),
-      linear-gradient(0deg, var(--purple-accent) 50%, transparent 50%);
-    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-    background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
-    background-position: left top, right bottom, left bottom, right top;
-    animation: border-dance 1s infinite linear;
+	&__card {
+		background-color: var(--card-background);
+		border-radius: 10px;
+		padding: 20px;
+		margin-bottom: 20px;
+		background-image: linear-gradient(
+				90deg,
+				var(--purple-accent) 50%,
+				transparent 50%
+			),
+			linear-gradient(90deg, var(--purple-accent) 50%, transparent 50%),
+			linear-gradient(0deg, var(--purple-accent) 50%, transparent 50%),
+			linear-gradient(0deg, var(--purple-accent) 50%, transparent 50%);
+		background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+		background-size: 15px 2px, 15px 2px, 2px 15px, 2px 15px;
+		background-position: left top, right bottom, left bottom, right top;
+		animation: border-dance 1s infinite linear;
 
-    @keyframes border-dance {
-      0% {
-        background-position: left top, right bottom, left bottom, right top;
-      }
+		@keyframes border-dance {
+			0% {
+				background-position: left top, right bottom, left bottom, right top;
+			}
 
-      100% {
-        background-position: left 15px top, right 15px bottom, left bottom 15px,
-          right top 15px;
-      }
-    }
-    h3 {
-      margin: 12px;
-      margin-left: 0;
-    }
-  }
+			100% {
+				background-position: left 15px top, right 15px bottom, left bottom 15px,
+					right top 15px;
+			}
+		}
+		h3 {
+			margin: 12px;
+			margin-left: 0;
+			color: var(--purple-accent);
+		}
+	}
 
-  h2 {
-    margin-top: 0;
-    padding-top: 0;
-    b {
-      @include gradientText();
-    }
-  }
+	h2 {
+		margin-top: 0;
+		padding-top: 0;
+		b {
+			@include gradientText();
+		}
+	}
 }
-@media (max-width: 800px) {
-  .experience {
-    display: block;
-  }
 
-  .card {
-    margin-bottom: 30px;
-  }
+.experience__section {
+	.waves-block {
+		padding-bottom: 250px;
+		padding-top: 100px;
+		position: relative;
+	}
+
+	.wave-scene {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 100vw;
+		height: 600px;
+		z-index: -1;
+		pointer-events: none;
+		overflow: hidden;
+	}
+
+	.waves {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 115vw;
+		transform-origin: center bottom;
+		z-index: 2;
+	}
+
+	.wave-shape {
+		transition: fill 0.5s ease;
+	}
+
+	.wave-orb {
+		display: none;
+		position: absolute;
+		right: -120px;
+		bottom: 35px;
+		width: 420px;
+		height: 420px;
+		border-radius: 50%;
+		z-index: 1;
+		filter: blur(1px);
+		opacity: 1;
+		background: radial-gradient(
+			circle at 30% 30%,
+			rgba(255, 242, 176, 0.98) 0%,
+			rgba(255, 217, 120, 0.84) 45%,
+			rgba(255, 174, 76, 0.25) 70%,
+			rgba(255, 174, 76, 0) 100%
+		);
+		box-shadow: 0 0 80px rgba(255, 196, 84, 0.45),
+			0 0 180px rgba(255, 170, 70, 0.22);
+	}
+
+	.waves--back {
+		transform: translate(-50%, 18px) scale(1.04);
+		opacity: 0.45;
+		animation: waveDriftBack 13s ease-in-out infinite alternate;
+
+		.wave-shape {
+			fill: color-mix(
+				in srgb,
+				var(--blue-accent) 60%,
+				var(--background-light) 40%
+			);
+		}
+	}
+
+	.waves--mid {
+		transform: translate(-49%, 10px) scale(1.07);
+		opacity: 0.65;
+		animation: waveDriftMid 9s ease-in-out infinite alternate;
+
+		.wave-shape {
+			fill: color-mix(in srgb, var(--blue-accent) 75%, var(--accent-color) 25%);
+		}
+	}
+
+	.waves--front {
+		transform: translate(-50%, 0) scale(1);
+		opacity: 0.88;
+		bottom: -30px;
+		animation: waveDriftFront 6.5s ease-in-out infinite alternate;
+
+		.wave-shape {
+			fill: color-mix(
+				in srgb,
+				var(--blue-accent) 82%,
+				var(--background-secondary) 18%
+			);
+		}
+	}
+
+	.waves-bottom-blend {
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: -2px;
+		height: 72px;
+		z-index: 3;
+		background: linear-gradient(
+			180deg,
+			rgba(36, 80, 193, 0) 0%,
+			rgba(36, 80, 193, 0.65) 100%
+		);
+		filter: blur(14px);
+		opacity: 0.9;
+	}
+
+	@keyframes waveDriftBack {
+		0% {
+			transform: translate(-50%, 10px) scale(1.04);
+		}
+		50% {
+			transform: translate(-48.5%, 24px) scale(1.09);
+		}
+		100% {
+			transform: translate(-51.2%, 16px) scale(1.03);
+		}
+	}
+
+	@keyframes waveDriftMid {
+		0% {
+			transform: translate(-49%, 38px) scale(1.02);
+		}
+		50% {
+			transform: translate(-50.2%, 12px) scale(1.03);
+		}
+		100% {
+			transform: translate(-48.6%, 7px) scale(1.01);
+		}
+	}
+
+	@keyframes waveDriftFront {
+		0% {
+			transform: translate(-53%, 0) scale(1);
+		}
+		50% {
+			transform: translate(-51.1%, 3px) scale(1.01);
+		}
+		100% {
+			transform: translate(-44.4%, -1px) scale(0.99);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.waves--back,
+		.waves--mid,
+		.waves--front {
+			animation: none;
+		}
+	}
+
+	:root[data-theme="dark"] & {
+		.wave-orb {
+			background: radial-gradient(
+				circle at 35% 30%,
+				rgba(240, 243, 255, 0.96) 0%,
+				rgba(208, 220, 255, 0.84) 45%,
+				rgba(154, 179, 255, 0.28) 72%,
+				rgba(154, 179, 255, 0) 100%
+			);
+			box-shadow: 0 0 90px rgba(180, 197, 255, 0.35),
+				0 0 180px rgba(108, 138, 255, 0.2);
+		}
+	}
+
+	@media (min-width: 1025px) {
+		.wave-orb {
+			display: block;
+		}
+	}
+	@media (max-width: 800px) {
+		.experience {
+			display: block;
+		}
+
+		.card {
+			margin-bottom: 30px;
+		}
+	}
 }

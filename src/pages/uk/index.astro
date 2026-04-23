@@ -1,23 +1,23 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header/Header.astro";
-import data from "../data/en.json";
-import Project from "../components/Project/Project.astro";
-import LinkButton from "../components/LinkButton.astro";
-import Experience from "../components/ExperienceBlock/Experience.astro";
-import Skills from "../components/SkillsBlock/Skills.astro";
-import Certifications from "../components/Certificate/Certifications.astro";
-import "../styles/page.scss";
-import "../styles/global.scss";
-import AboutMe from "../components/AboutMe/AboutMe.astro";
-import { getTranslation } from "../i18n";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header/Header.astro";
+import data from "../../data/uk.json";
+import Project from "../../components/Project/Project.astro";
+import LinkButton from "../../components/LinkButton.astro";
+import Experience from "../../components/ExperienceBlock/Experience.astro";
+import Skills from "../../components/SkillsBlock/Skills.astro";
+import Certifications from "../../components/Certificate/Certifications.astro";
+import "../../styles/page.scss";
+import "../../styles/global.scss";
+import AboutMe from "../../components/AboutMe/AboutMe.astro";
+import { getTranslation } from "../../i18n";
 
-const t = getTranslation("en");
+const t = getTranslation("uk");
 const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
 ---
 
-<Layout title={t.meta.title} lang="en">
-	<Header labels={t.header} currentLocale="en" />
+<Layout title={t.meta.title} lang="uk">
+	<Header labels={t.header} currentLocale="uk" />
 	<main>
 		<section>
 			<h1 class="name">👋🏻 {t.hero.greeting}</h1>
@@ -35,10 +35,14 @@ const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
 
 			{data.projects.map((e) => <Project data={e} texts={t.project} />)}
 		</section>
-		<h2 class="section__heading">
-			{t.experience.experienceHeaderFirst}
-			<span>{t.experience.experienceHeaderSecond}</span>👨‍💻
-		</h2>
+
+		<section>
+			<h2 class="section__heading">
+				{t.experience.experienceHeaderFirst}
+				<span>{t.experience.experienceHeaderSecond}</span>👨‍💻
+			</h2>
+		</section>
+
 		<section class="experience__section" id="experience">
 			<Experience texts={t.experience} />
 		</section>
@@ -83,4 +87,4 @@ const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
 	</main>
 </Layout>
 
-<script src="./index.js"></script>
+<script src="../index.js"></script>

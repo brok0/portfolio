@@ -13,9 +13,15 @@ type Project = {
 
 export interface Props {
 	data: Project;
+	texts: {
+		code: string;
+		demo: string;
+	};
 }
 
 const { title, description, img, codeLink, demoLink, stack } = Astro.props.data;
+const { texts } = Astro.props;
+const normalizedImg = `${import.meta.env.BASE_URL}${img.replace(/^\/+/, "")}`;
 ---
 
 <div class="project">
@@ -26,11 +32,11 @@ const { title, description, img, codeLink, demoLink, stack } = Astro.props.data;
 			{stack.map((e) => <div class="stack-item">{e}</div>)}
 		</div>
 		<div class="project__links">
-			{codeLink && <LinkButton link={codeLink} text="Code ↗️" />}
-			{demoLink && <LinkButton link={demoLink} text="Demo ↗️" />}
+			{codeLink && <LinkButton link={codeLink} text={`${texts.code} ↗️`} />}
+			{demoLink && <LinkButton link={demoLink} text={`${texts.demo} ↗️`} />}
 		</div>
 	</div>
-	<div class="image" style={`background-image:url(${img})`}></div>
+	<div class="image" style={`background-image:url(${normalizedImg})`}></div>
 </div>
 
 <script src="./project.js"></script>

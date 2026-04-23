@@ -6,10 +6,11 @@ export interface Props {
 	description: string;
 	links: Array<{ url: string; title: string }>;
 	author?: string;
+	authorLabel?: string;
 	classList?: string;
 }
 
-const { links, title, description, author, classList } = Astro.props;
+const { links, title, description, author, authorLabel = "Author", classList } = Astro.props;
 ---
 
 <div class=`card__wrap ${classList} `>
@@ -19,7 +20,7 @@ const { links, title, description, author, classList } = Astro.props;
 			{
 				author && (
 					<p>
-						<b>Author:</b> {author}
+						<b>{authorLabel}:</b> {author}
 					</p>
 				)
 			}
