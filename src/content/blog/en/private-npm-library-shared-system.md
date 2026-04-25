@@ -1,8 +1,8 @@
 ---
 title: "Building a private npm library for a shared component system"
 description: "What actually matters when versioning and maintaining a private UI package across teams."
-date: "2025-02-11"
-readTime: "5 min read"
+date: "4-25-2026"
+readTime: "1 min read"
 tag: "DX"
 slug: "private-npm-library-shared-system"
 locale: "en"

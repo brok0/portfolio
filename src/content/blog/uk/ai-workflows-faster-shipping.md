@@ -1,7 +1,7 @@
 ---
 title: "Як я використовую AI-процеси, щоб швидше релізити frontend-фічі"
 description: "Практичний підхід до AI як thinking partner у React + TypeScript розробці."
-date: "2025-04-18"
+date: "4-25-2026"
 readTime: "6 хв читання"
 tag: "AI workflows"
 slug: "ai-workflows-faster-shipping"

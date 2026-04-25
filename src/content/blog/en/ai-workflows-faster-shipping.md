@@ -1,7 +1,7 @@
 ---
 title: "How I use AI workflows to ship frontend features faster"
 description: "Practical ways I use AI as a thinking partner when building React + TypeScript products."
-date: "2025-04-18"
+date: "4-25-2026"
 readTime: "5 min read"
 tag: "AI workflows"
 slug: "ai-workflows-faster-shipping"

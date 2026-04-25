@@ -1,7 +1,7 @@
 ---
 title: "Створення приватної npm-бібліотеки для спільної компонентної системи"
 description: "Що справді важливо у versioning та підтримці приватного UI пакета між командами."
-date: "2025-02-11"
+date: "4-25-2026"
 readTime: "1 хв читання"
 tag: "DX"
 slug: "private-npm-library-shared-system"

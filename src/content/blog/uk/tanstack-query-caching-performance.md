@@ -1,7 +1,7 @@
 ---
 title: "Патерни TanStack Query для кешування та продуктивності UI"
 description: "Прості рішення щодо query keys і staleTime, які роблять інтерфейс швидшим."
-date: "2025-03-24"
+date: "4-25-2026"
 readTime: "1 хв читання"
 tag: "React"
 slug: "tanstack-query-caching-performance"

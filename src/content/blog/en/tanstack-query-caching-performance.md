@@ -1,8 +1,8 @@
 ---
 title: "TanStack Query patterns for caching and UI performance"
 description: "Simple query-key and stale-time decisions that noticeably improve perceived speed."
-date: "2025-03-24"
-readTime: "4 min read"
+date: "4-25-2026"
+readTime: "1 min read"
 tag: "React"
 slug: "tanstack-query-caching-performance"
 locale: "en"
