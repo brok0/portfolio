@@ -23,7 +23,7 @@ const restPosts = posts.filter((post) => post.slug !== featuredPost?.slug);
 	/>
 	<main class="blog-main">
 		<section class="blog-list-head">
-			<h1>{t.blog.heading}</h1>
+			<h1>{t.blog.heading} <span>{t.blog.headingHighlight}</span></h1>
 		</section>
 		<section class="blog-grid">
 			{featuredPost && (
