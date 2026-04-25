@@ -1,0 +1,68 @@
+---
+import "../styles/theme-lang-switcher.scss";
+
+export interface Props {
+	currentLocale: "en" | "uk";
+	enHref: string;
+	ukHref: string;
+	themeSwitcherLabel: string;
+	ariaLabel?: string;
+	class?: string;
+}
+
+const {
+	currentLocale,
+	enHref,
+	ukHref,
+	themeSwitcherLabel,
+	ariaLabel = "Language switcher",
+	class: className = "",
+} = Astro.props;
+---
+
+<div class={`theme-lang-switcher ${className}`}>
+	<div class="theme-lang-switcher__lang" aria-label={ariaLabel}>
+		<a href={enHref} class={currentLocale === "en" ? "is-active" : ""}>EN</a>
+		<a href={ukHref} class={currentLocale === "uk" ? "is-active" : ""}>UA</a>
+	</div>
+	<button
+		type="button"
+		class="theme-lang-switcher__theme-toggle"
+		data-theme-toggle
+		aria-label={themeSwitcherLabel}
+		aria-pressed="false"
+		title={themeSwitcherLabel}
+	>
+		<span data-theme-icon>🌙</span>
+	</button>
+</div>
+
+<script>
+	const themeToggles = document.querySelectorAll("[data-theme-toggle]");
+	const storageKey = "theme";
+
+	const syncThemeControl = (theme) => {
+		themeToggles.forEach((toggle) => {
+			toggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+			const iconNode = toggle.querySelector("[data-theme-icon]");
+			if (iconNode) {
+				iconNode.textContent = theme === "dark" ? "☀️" : "🌙";
+			}
+		});
+	};
+
+	const getCurrentTheme = () => {
+		const current = document.documentElement.dataset.theme;
+		return current === "dark" ? "dark" : "light";
+	};
+
+	themeToggles.forEach((themeToggle) => {
+		syncThemeControl(getCurrentTheme());
+		themeToggle.addEventListener("click", () => {
+			const nextTheme = getCurrentTheme() === "dark" ? "light" : "dark";
+			document.documentElement.dataset.theme = nextTheme;
+			localStorage.setItem(storageKey, nextTheme);
+			syncThemeControl(nextTheme);
+		});
+	});
+</script>

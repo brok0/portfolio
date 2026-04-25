@@ -1,0 +1,43 @@
+---
+import type { BlogLocale } from "../../utils/blog";
+import ThemeLangSwitcher from "../ThemeLangSwitcher.astro";
+
+export interface Props {
+	locale: BlogLocale;
+	homeLabel: string;
+	blogLabel: string;
+	themeToggleLabel: string;
+	slug?: string;
+}
+
+const { locale, homeLabel, blogLabel, themeToggleLabel, slug } = Astro.props;
+const baseUrl = import.meta.env.BASE_URL;
+const homeHref = `${baseUrl}${locale === "uk" ? "uk/" : ""}`;
+const blogHref = `${baseUrl}${locale === "uk" ? "uk/" : ""}blog/`;
+const enHref = `${baseUrl}blog/${slug ? `${slug}/` : ""}`;
+const ukHref = `${baseUrl}uk/blog/${slug ? `${slug}/` : ""}`;
+---
+
+<header class="blog-header">
+	<div class="blog-header__inner">
+		<div class="blog-header__left">
+			<a href={homeHref} class="blog-header__home-link">← {homeLabel}</a>
+			{
+				slug && (
+					<a href={blogHref} class="blog-header__all-link">
+						{blogLabel}
+					</a>
+				)
+			}
+		</div>
+
+		<div class="blog-header__right">
+			<ThemeLangSwitcher
+				currentLocale={locale}
+				enHref={enHref}
+				ukHref={ukHref}
+				themeSwitcherLabel={themeToggleLabel}
+			/>
+		</div>
+	</div>
+</header>

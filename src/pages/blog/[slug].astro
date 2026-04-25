@@ -1,0 +1,31 @@
+---
+import BlogPostLayout from "../../layouts/BlogPostLayout.astro";
+import { getBlogPostsByLocale, type BlogPost } from "../../utils/blog";
+import { getTranslation } from "../../i18n";
+
+export async function getStaticPaths() {
+	const posts = await getBlogPostsByLocale("en");
+	return posts.map((post) => ({
+		params: { slug: post.slug },
+		props: { post },
+	}));
+}
+
+const { post } = Astro.props as { post: BlogPost };
+const PostContent = post.Content as any;
+const t = getTranslation("en");
+---
+
+<BlogPostLayout
+	title={post.title}
+	locale="en"
+	homeLabel={t.blog.backHome}
+	blogLabel={t.blog.allPosts}
+	themeToggleLabel={t.blog.themeToggleLabel}
+	date={post.date}
+	readTime={post.readTime}
+	tag={post.tag}
+	slug={post.slug}
+>
+	<PostContent />
+</BlogPostLayout>

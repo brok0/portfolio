@@ -1,0 +1,17 @@
+---
+export interface Props {
+	date: string;
+	readTime: string;
+	tag: string;
+}
+
+const { date, readTime, tag } = Astro.props;
+---
+
+<div class="blog-meta">
+	<span>{date}</span>
+	<span class="blog-meta__dot" aria-hidden="true">•</span>
+	<span>{readTime}</span>
+	<span class="blog-meta__dot" aria-hidden="true">•</span>
+	<span class="blog-meta__tag">{tag}</span>
+</div>

@@ -1,0 +1,40 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import BlogHeader from "../../../components/Blog/BlogHeader.astro";
+import BlogCard from "../../../components/Blog/BlogCard.astro";
+import { getBlogPostsByLocale } from "../../../utils/blog";
+import { getTranslation } from "../../../i18n";
+import "../../../styles/global.scss";
+import "../../../styles/blog.scss";
+
+const locale = "uk";
+const t = getTranslation(locale);
+const posts = await getBlogPostsByLocale(locale);
+const featuredPost = posts.find((post) => post.featured) ?? posts[0];
+const restPosts = posts.filter((post) => post.slug !== featuredPost?.slug);
+---
+
+<Layout title={t.blog.metaTitle} lang={locale}>
+	<BlogHeader
+		locale={locale}
+		homeLabel={t.blog.backHome}
+		blogLabel={t.blog.allPosts}
+		themeToggleLabel={t.blog.themeToggleLabel}
+	/>
+	<main class="blog-main">
+		<section class="blog-list-head">
+			<h1>{t.blog.heading}</h1>
+		</section>
+		<section class="blog-grid">
+			{featuredPost && (
+				<BlogCard
+					post={featuredPost}
+					locale={locale}
+					featured={true}
+					featuredLabel={t.blog.featured}
+				/>
+			)}
+			{restPosts.map((post) => <BlogCard post={post} locale={locale} />)}
+		</section>
+	</main>
+</Layout>

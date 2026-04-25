@@ -1,0 +1,52 @@
+.theme-lang-switcher {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	z-index: 2;
+
+	&__lang {
+		display: flex;
+		gap: 0.5rem;
+		padding: 0.25rem;
+		border: 1px solid var(--border-color);
+		border-radius: 999px;
+		background-color: var(--surface-glass);
+
+		a {
+			padding: 0.2rem 0.6rem;
+			border-radius: 999px;
+			font-size: 0.875rem;
+			text-decoration: none;
+			font-weight: 600;
+			color: var(--accent-color);
+			
+			&.is-active {
+				background-color: var(--accent-color);
+				color: #fff;
+			}
+		}
+	}
+
+	&__theme-toggle {
+		border: 1px solid var(--border-color);
+		background: var(--surface-glass);
+		color: var(--text-primary);
+		border-radius: 999px;
+		width: 2.2rem;
+		height: 2.2rem;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+
+		&:focus-visible {
+			outline: 2px solid var(--accent-color);
+			outline-offset: 2px;
+		}
+
+		span {
+			pointer-events: none;
+		}
+	}
+}

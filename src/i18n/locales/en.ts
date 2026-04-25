@@ -69,7 +69,7 @@ const en = {
 	experience: {
 		experienceHeading: "Experience",
 		experienceHeaderFirst: "Professional",
-		experienceHeaderSecond: "experience",
+		experienceHeaderSecond: "Experience",
 		educationHeading: "Education",
 		company: "Exadel",
 		roleSenior: "Software Engineer",
@@ -91,6 +91,16 @@ const en = {
 	project: {
 		code: "Code",
 		demo: "Demo",
+	},
+	blog: {
+		metaTitle: "Blog & notes - Borys Hlynskyi",
+		heading: "Blog &",
+		headingHighlight: "Notes",
+		subheading: "Things I've learned building frontend at scale",
+		allPosts: "All posts",
+		featured: "Featured",
+		backHome: "Back to home",
+		themeToggleLabel: "Toggle theme",
 	},
 } as const;
 

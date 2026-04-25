@@ -9,11 +9,20 @@ import Skills from "../components/SkillsBlock/Skills.astro";
 import Certifications from "../components/Certificate/Certifications.astro";
 import "../styles/page.scss";
 import "../styles/global.scss";
+import "../styles/blog.scss";
 import AboutMe from "../components/AboutMe/AboutMe.astro";
+import BlogCard from "../components/Blog/BlogCard.astro";
 import { getTranslation } from "../i18n";
+import { getBlogPostsByLocale } from "../utils/blog";
 
 const t = getTranslation("en");
 const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
+const posts = await getBlogPostsByLocale("en");
+const featuredPost = posts.find((post) => post.featured) ?? posts[0];
+const restPosts = posts
+	.filter((post) => post.slug !== featuredPost?.slug)
+	.slice(0, 2);
+const allPostsHref = `${import.meta.env.BASE_URL}blog/`;
 ---
 
 <Layout title={t.meta.title} lang="en">
@@ -45,6 +54,33 @@ const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
 
 		<section id="certifications">
 			<Certifications certificates={data.certificates} texts={t.certifications} />
+		</section>
+
+		<section class="home-blog" id="blog">
+			<div class="home-blog__intro">
+				<div>
+					<h2 class="section__heading">
+						{t.blog.heading}
+						<span>{t.blog.headingHighlight}</span>
+					</h2>
+					<p class="home-blog__subheading">{t.blog.subheading}</p>
+				</div>
+				<a class="home-blog__all-link" href={allPostsHref}>{t.blog.allPosts} →</a>
+			</div>
+
+			<div class="blog-grid">
+				{
+					featuredPost && (
+						<BlogCard
+							post={featuredPost}
+							locale="en"
+							featured={true}
+							featuredLabel={t.blog.featured}
+						/>
+					)
+				}
+				{restPosts.map((post) => <BlogCard post={post} locale="en" />)}
+			</div>
 		</section>
 
 		<section class="contact__section" id="contacts">

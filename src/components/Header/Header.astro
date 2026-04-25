@@ -1,5 +1,6 @@
 ---
 import LinkButton from "../../components/LinkButton.astro";
+import ThemeLangSwitcher from "../ThemeLangSwitcher.astro";
 import "../../styles/header.scss";
 
 export interface Props {
@@ -24,34 +25,14 @@ const menuToggleLabel =
 ---
 
 <div class="header__wrap">
-	<div class="header__lang-switcher" aria-label={labels.switcherLabel}>
-		<a
-			href="/portfolio/"
-			class={currentLocale === "en"
-				? "header__lang-link is-active"
-				: "header__lang-link"}
-		>
-			EN
-		</a>
-		<a
-			href="/portfolio/uk/"
-			class={currentLocale === "uk"
-				? "header__lang-link is-active"
-				: "header__lang-link"}
-		>
-			UA
-		</a>
-		<button
-			type="button"
-			class="header__theme-toggle"
-			data-theme-toggle
-			aria-label={themeSwitcherLabel}
-			aria-pressed="false"
-			title={themeSwitcherLabel}
-		>
-			<span class="header__theme-toggle-icon" data-theme-icon>🌙</span>
-		</button>
-	</div>
+	<ThemeLangSwitcher
+		class="header__switcher"
+		currentLocale={currentLocale}
+		enHref="/portfolio/"
+		ukHref="/portfolio/uk/"
+		themeSwitcherLabel={themeSwitcherLabel}
+		ariaLabel={labels.switcherLabel}
+	/>
 	<div class="header__with-btn">
 		<button
 			type="button"
@@ -99,33 +80,9 @@ const menuToggleLabel =
 </div>
 
 <script>
-	const themeToggle = document.querySelector("[data-theme-toggle]");
-	const iconNode = document.querySelector("[data-theme-icon]");
 	const menuToggle = document.querySelector("[data-menu-toggle]");
 	const mobileMenu = document.querySelector("[data-mobile-menu]");
 	const mobileMenuLinks = document.querySelectorAll("[data-mobile-menu] a");
-	const storageKey = "theme";
-
-	const syncThemeControl = (theme) => {
-		if (!themeToggle || !iconNode) return;
-		themeToggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
-		iconNode.textContent = theme === "dark" ? "☀️" : "🌙";
-	};
-
-	const getCurrentTheme = () => {
-		const current = document.documentElement.dataset.theme;
-		return current === "dark" ? "dark" : "light";
-	};
-
-	if (themeToggle) {
-		syncThemeControl(getCurrentTheme());
-		themeToggle.addEventListener("click", () => {
-			const nextTheme = getCurrentTheme() === "dark" ? "light" : "dark";
-			document.documentElement.dataset.theme = nextTheme;
-			localStorage.setItem(storageKey, nextTheme);
-			syncThemeControl(nextTheme);
-		});
-	}
 
 	const setMobileMenuState = (isOpen) => {
 		if (!menuToggle || !mobileMenu) return;

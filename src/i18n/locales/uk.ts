@@ -92,6 +92,16 @@ const uk = {
 		code: "Код",
 		demo: "Демо",
 	},
+	blog: {
+		metaTitle: "Блог та нотатки - Борис Глинський",
+		heading: "Блог та ",
+		headingHighlight: "нотатки",
+		subheading: "Ось що я вивчив, створюючи frontend-рішення",
+		allPosts: "Усі пости",
+		featured: "Обране",
+		backHome: "Назад на головну",
+		themeToggleLabel: "Перемкнути тему",
+	},
 } as const;
 
 export default uk;

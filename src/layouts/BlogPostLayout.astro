@@ -1,0 +1,51 @@
+---
+import Layout from "./Layout.astro";
+import BlogHeader from "../components/Blog/BlogHeader.astro";
+import BlogMeta from "../components/Blog/BlogMeta.astro";
+import type { BlogLocale } from "../utils/blog";
+import "../styles/global.scss";
+import "../styles/blog.scss";
+
+export interface Props {
+	title: string;
+	locale: BlogLocale;
+	homeLabel: string;
+	blogLabel: string;
+	themeToggleLabel: string;
+	date: string;
+	readTime: string;
+	tag: string;
+	slug: string;
+}
+
+const {
+	title,
+	locale,
+	homeLabel,
+	blogLabel,
+	themeToggleLabel,
+	date,
+	readTime,
+	tag,
+	slug,
+} = Astro.props;
+---
+
+<Layout title={title} lang={locale}>
+	<BlogHeader
+		locale={locale}
+		homeLabel={homeLabel}
+		blogLabel={blogLabel}
+		themeToggleLabel={themeToggleLabel}
+		slug={slug}
+	/>
+	<main class="blog-main">
+		<article class="blog-post">
+			<h1 class="blog-post__title">{title}</h1>
+			<BlogMeta date={date} readTime={readTime} tag={tag} />
+			<div class="blog-post__content">
+				<slot />
+			</div>
+		</article>
+	</main>
+</Layout>
