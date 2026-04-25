@@ -11,6 +11,7 @@ const en = {
 		contacts: "Contacts",
 		downloadCv: "Download CV",
 		switcherLabel: "Language",
+		blog: "Blog",
 	},
 	hero: {
 		greeting: "Hi, I'm Borys Hlynskyi",

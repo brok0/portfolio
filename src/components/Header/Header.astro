@@ -12,6 +12,7 @@ export interface Props {
 		contacts: string;
 		downloadCv: string;
 		switcherLabel: string;
+		blog: string;
 	};
 	currentLocale: "en" | "uk";
 }
@@ -52,6 +53,7 @@ const menuToggleLabel =
 			<a href="#experience">{labels.experience}</a>
 			<a href="#certifications">{labels.certifications}</a>
 			<a href="#contacts">{labels.contacts}</a>
+			<a href="#blog">{labels.blog}</a>
 		</nav>
 		<LinkButton
 			download={{
@@ -67,6 +69,7 @@ const menuToggleLabel =
 				<a href="#experience">{labels.experience}</a>
 				<a href="#certifications">{labels.certifications}</a>
 				<a href="#contacts">{labels.contacts}</a>
+				<a href="#blog">{labels.blog}</a>
 			</nav>
 			<LinkButton
 				download={{

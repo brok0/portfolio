@@ -11,6 +11,7 @@ const uk = {
 		contacts: "Контакти",
 		downloadCv: "Завантажити CV",
 		switcherLabel: "Мова",
+		blog: "Блог",
 	},
 	hero: {
 		greeting: "Привіт, я Глинський Борис",
