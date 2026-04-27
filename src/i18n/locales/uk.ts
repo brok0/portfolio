@@ -25,6 +25,8 @@ const uk = {
 		contactOr: "або",
 		linkedinName: "LinkedIn",
 		sendEmail: "Надіслати email",
+		blogContactTitle: "Маєте запитання?",
+		blogContactSubtitle: "Напишіть мені на",
 		linkedinProfile: "Профіль LinkedIn",
 	},
 	about: {

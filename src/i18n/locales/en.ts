@@ -25,6 +25,8 @@ const en = {
 		contactOr: "or",
 		linkedinName: "LinkedIn",
 		sendEmail: "Send email",
+		blogContactTitle: "Got any questions?",
+		blogContactSubtitle: "Feel free to reach out at ",
 		linkedinProfile: "LinkedIn profile",
 	},
 	about: {
