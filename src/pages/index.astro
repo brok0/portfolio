@@ -44,10 +44,7 @@ const allPostsHref = `${import.meta.env.BASE_URL}blog/`;
 
 			{data.projects.map((e) => <Project data={e} texts={t.project} />)}
 		</section>
-		<h2 class="section__heading">
-			{t.experience.experienceHeaderFirst}
-			<span>{t.experience.experienceHeaderSecond}</span>👨‍💻
-		</h2>
+		
 		<section class="experience__section" id="experience">
 			<Experience texts={t.experience} />
 		</section>

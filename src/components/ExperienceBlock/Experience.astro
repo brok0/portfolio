@@ -58,32 +58,56 @@ const { texts } = Astro.props;
 		</svg>
 		<div class="waves-bottom-blend"></div>
 	</div>
-	<div class="experience">
-		<div class="experience__card">
+	<div class="experience-container">
+		<div class="timeline-section">
 			<h2><b>{texts.experienceHeading}</b> ⚒️</h2>
-			<h3>{texts.company}</h3>
-			<div class="experience__item">
-				<p>{texts.roleSenior}</p>
-				<p>{texts.periodSenior}</p>
-			</div>
-			<div class="experience__item">
-				<p>{texts.roleJunior}</p>
-				<p>{texts.periodJunior}</p>
+			<div class="timeline">
+				<div class="timeline__item">
+					<div class="timeline__dot"></div>
+					<div class="timeline__card">
+						<div class="timeline__header">
+							<h3>{texts.roleSenior}</h3>
+							<span class="timeline__date">{texts.periodSenior}</span>
+						</div>
+						<p class="timeline__company">{texts.company}</p>
+					</div>
+				</div>
+				<div class="timeline__item">
+					<div class="timeline__dot"></div>
+					<div class="timeline__card">
+						<div class="timeline__header">
+							<h3>{texts.roleJunior}</h3>
+							<span class="timeline__date">{texts.periodJunior}</span>
+						</div>
+						<p class="timeline__company">{texts.company}</p>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="experience__card">
+
+		<div class="timeline-section">
 			<h2><b>{texts.educationHeading}</b> 🏫</h2>
-
-			<h3>{texts.mastersTitle}</h3>
-			<div class="experience__item">
-				<p>{texts.degreeField}</p>
-				<p>{texts.mastersPeriod}</p>
-			</div>
-
-			<h3>{texts.bachelorsTitle}</h3>
-			<div class="experience__item">
-				<p>{texts.degreeField}</p>
-				<p>{texts.bachelorsPeriod}</p>
+			<div class="timeline">
+				<div class="timeline__item">
+					<div class="timeline__dot"></div>
+					<div class="timeline__card">
+						<div class="timeline__header">
+							<h3>{texts.mastersTitle}</h3>
+							<span class="timeline__date">{texts.mastersPeriod}</span>
+						</div>
+						<p class="timeline__company">{texts.degreeField}</p>
+					</div>
+				</div>
+				<div class="timeline__item">
+					<div class="timeline__dot"></div>
+					<div class="timeline__card">
+						<div class="timeline__header">
+							<h3>{texts.bachelorsTitle}</h3>
+							<span class="timeline__date">{texts.bachelorsPeriod}</span>
+						</div>
+						<p class="timeline__company">{texts.degreeField}</p>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
