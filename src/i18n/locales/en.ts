@@ -2,6 +2,7 @@ const en = {
 	locale: "en",
 	meta: {
 		title: "Web Developer - Borys Hlynskyi",
+		description: "Frontend Software Engineer from Ukraine with 4+ years building React & TypeScript web products. Open to remote opportunities.",
 	},
 	header: {
 		about: "About",
@@ -97,6 +98,7 @@ const en = {
 	},
 	blog: {
 		metaTitle: "Blog & notes - Borys Hlynskyi",
+		metaDescription: "Frontend engineering notes on React, TypeScript, performance, and AI-powered developer workflows.",
 		heading: "Blog &",
 		headingHighlight: "Notes",
 		subheading: "Things I've learned building frontend at scale",

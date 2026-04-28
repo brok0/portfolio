@@ -25,7 +25,7 @@ const restPosts = posts
 const allPostsHref = `${import.meta.env.BASE_URL}blog/`;
 ---
 
-<Layout title={t.meta.title} lang="en">
+<Layout title={t.meta.title} lang="en" description={t.meta.description}>
 	<Header labels={t.header} currentLocale="en" />
 	<main>
 		<section>

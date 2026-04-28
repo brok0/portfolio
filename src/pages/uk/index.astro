@@ -23,7 +23,7 @@ const restPosts = posts.filter((post) => post.slug !== featuredPost?.slug).slice
 const allPostsHref = `${import.meta.env.BASE_URL}uk/blog/`;
 ---
 
-<Layout title={t.meta.title} lang="uk">
+<Layout title={t.meta.title} lang="uk" description={t.meta.description}>
 	<Header labels={t.header} currentLocale="uk" />
 	<main>
 		<section>

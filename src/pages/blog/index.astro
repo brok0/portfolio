@@ -14,7 +14,7 @@ const featuredPost = posts.find((post) => post.featured) ?? posts[0];
 const restPosts = posts.filter((post) => post.slug !== featuredPost?.slug);
 ---
 
-<Layout title={t.blog.metaTitle} lang={locale}>
+<Layout title={t.blog.metaTitle} lang={locale} description={t.blog.metaDescription}>
 	<BlogHeader
 		locale={locale}
 		homeLabel={t.blog.backHome}

@@ -2,10 +2,21 @@
 export interface Props {
   title: string;
   lang?: "en" | "uk";
+  description?: string;
+  ogImage?: string;
+  ogUrl?: string;
 }
 
-const { title, lang = "en" } = Astro.props;
+const { title, lang = "en", description, ogImage, ogUrl } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
+
+const siteOrigin = "https://brok0.github.io";
+const canonicalUrl = ogUrl ?? `${siteOrigin}${Astro.url.pathname}`;
+const defaultOgImage = `${siteOrigin}${baseUrl}og-image.png`;
+const socialImage = ogImage ?? defaultOgImage;
+const metaDescription =
+  description ??
+  "Frontend Software Engineer from Ukraine specialising in React & TypeScript. 4+ years building scalable web products.";
 ---
 
 <!DOCTYPE html>
@@ -31,6 +42,26 @@ const baseUrl = import.meta.env.BASE_URL;
       })();
     </script>
     <title>{title}</title>
+
+    <!-- SEO -->
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={metaDescription} />
+    <meta name="twitter:image" content={socialImage} />
   </head>
   <body>
     <slot />

@@ -11,6 +11,7 @@ import "../styles/page.scss";
 
 export interface Props {
 	title: string;
+	description?: string;
 	locale: BlogLocale;
 	homeLabel: string;
 	blogLabel: string;
@@ -23,6 +24,7 @@ export interface Props {
 
 const {
 	title,
+	description,
 	locale,
 	homeLabel,
 	blogLabel,
@@ -36,7 +38,7 @@ const {
 const t = getTranslation(locale);
 ---
 
-<Layout title={title} lang={locale}>
+<Layout title={title} lang={locale} description={description}>
 	<BlogHeader
 		locale={locale}
 		homeLabel={homeLabel}

@@ -2,6 +2,7 @@ const uk = {
 	locale: "uk",
 	meta: {
 		title: "Веб-розробник - Борис Глинський",
+		description: "Frontend Software Engineer з України з 4+ роками досвіду розробки React & TypeScript вебпродуктів. Відкритий до віддалених можливостей.",
 	},
 	header: {
 		about: "Про мене",
@@ -97,6 +98,7 @@ const uk = {
 	},
 	blog: {
 		metaTitle: "Блог та нотатки - Борис Глинський",
+		metaDescription: "Нотатки з frontend-розробки: React, TypeScript, продуктивність та AI-інструменти для розробників.",
 		heading: "Блог та ",
 		headingHighlight: "нотатки",
 		subheading: "Ось що я вивчив, створюючи frontend-рішення",
