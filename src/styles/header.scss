@@ -21,6 +21,7 @@ $mobile-menu-breakpoint: 1100px;
 		backdrop-filter: blur(10px);
 
 		.theme-lang-switcher{
+			z-index: 40;
 			top:35px;
 
 			@media (max-width: 1600px) {
