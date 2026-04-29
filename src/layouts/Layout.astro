@@ -1,69 +1,87 @@
 ---
 export interface Props {
-  title: string;
-  lang?: "en" | "uk";
-  description?: string;
-  ogImage?: string;
-  ogUrl?: string;
+	title: string;
+	lang?: "en" | "uk";
+	description?: string;
+	ogImage?: string;
+	ogUrl?: string;
 }
 
 const { title, lang = "en", description, ogImage, ogUrl } = Astro.props;
 const baseUrl = import.meta.env.BASE_URL;
 
-const siteOrigin = "https://brok0.github.io";
+const siteOrigin = "https://borys-hlynskyi.site";
 const canonicalUrl = ogUrl ?? `${siteOrigin}${Astro.url.pathname}`;
 const defaultOgImage = `${siteOrigin}${baseUrl}og-img.png`;
 const socialImage = ogImage ?? defaultOgImage;
 const metaDescription =
-  description ??
-  "Frontend Software Engineer from Ukraine specialising in React & TypeScript. 4+ years building scalable web products.";
+	description ??
+	"Frontend Software Engineer from Ukraine specialising in React & TypeScript. 4+ years building scalable web products.";
 ---
 
 <!DOCTYPE html>
 <html lang={lang}>
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/x-ico" href={`${baseUrl}favicon.ico?`} />
-    <link rel="apple-touch-icon" sizes="180x180" href={`${baseUrl}apple-touch-icon.png`} />
-    <link rel="icon" type="image/png" sizes="32x32" href={`${baseUrl}favicon-32x32.png`} />
-    <link rel="icon" type="image/png" sizes="16x16" href={`${baseUrl}favicon-16x16.png`} />
-    <link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
-    <meta name="generator" content={Astro.generator} />
-    <script is:inline>
-      (() => {
-        const storageKey = "theme";
-        const savedTheme = localStorage.getItem(storageKey);
-        const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)").matches
-          ? "dark"
-          : "light";
-        const theme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : preferredTheme;
-        document.documentElement.dataset.theme = theme;
-      })();
-    </script>
-    <title>{title}</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-ico" href={`${baseUrl}favicon.ico?`} />
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href={`${baseUrl}apple-touch-icon.png`}
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href={`${baseUrl}favicon-32x32.png`}
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href={`${baseUrl}favicon-16x16.png`}
+		/>
+		<link rel="icon" type="image/svg+xml" href={`${baseUrl}favicon.svg`} />
+		<meta name="generator" content={Astro.generator} />
+		<script is:inline>
+			(() => {
+				const storageKey = "theme";
+				const savedTheme = localStorage.getItem(storageKey);
+				const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
+					.matches
+					? "dark"
+					: "light";
+				const theme =
+					savedTheme === "dark" || savedTheme === "light"
+						? savedTheme
+						: preferredTheme;
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
+		<title>{title}</title>
 
-    <!-- SEO -->
-    <meta name="description" content={metaDescription} />
-    <link rel="canonical" href={canonicalUrl} />
+		<!-- SEO -->
+		<meta name="description" content={metaDescription} />
+		<link rel="canonical" href={canonicalUrl} />
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={metaDescription} />
-    <meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={metaDescription} />
+		<meta property="og:image" content={socialImage} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content={canonicalUrl} />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={metaDescription} />
-    <meta name="twitter:image" content={socialImage} />
-  </head>
-  <body>
-    <slot />
-  </body>
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={canonicalUrl} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={metaDescription} />
+		<meta name="twitter:image" content={socialImage} />
+	</head>
+	<body>
+		<slot />
+	</body>
 </html>
