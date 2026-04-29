@@ -1,4 +1,5 @@
 $mobile-menu-breakpoint: 1100px;
+
 .header {
 	padding: 30px;
 	padding-left: 0;
@@ -18,9 +19,6 @@ $mobile-menu-breakpoint: 1100px;
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 		background-color: var(--surface-glass-strong);
 		backdrop-filter: blur(10px);
-		@media (max-width: 900px) {
-			position: relative;
-		}
 
 		.theme-lang-switcher{
 			top:35px;
@@ -36,7 +34,9 @@ $mobile-menu-breakpoint: 1100px;
 	}
 
 	&__with-btn {
-		position: relative;
+		z-index: 30;
+		top: 0;
+		position: sticky;
 		display: flex;
 		margin: auto;
 		justify-content: space-between;
@@ -54,7 +54,7 @@ $mobile-menu-breakpoint: 1100px;
 
 		@media (max-width: $mobile-menu-breakpoint) {
 			padding: 20px 20px 20px 30px;
-
+			
 			.button {
 				display: none;
 			}
