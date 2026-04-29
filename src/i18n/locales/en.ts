@@ -21,7 +21,7 @@ const en = {
 	sections: {
 		projectsPrefix: "My",
 		projectsHighlight: "Projects",
-		contactTitle: "Let's Connect!",
+		contactTitle: "Let's Connect",
 		contactSubtitle: "Contact me at",
 		contactOr: "or",
 		linkedinName: "LinkedIn",

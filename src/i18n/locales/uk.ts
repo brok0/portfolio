@@ -21,7 +21,7 @@ const uk = {
 	sections: {
 		projectsPrefix: "Мої",
 		projectsHighlight: "проєкти",
-		contactTitle: "Зв'яжіться зі мною!",
+		contactTitle: "Зв'яжіться зі мною",
 		contactSubtitle: "Напишіть мені на",
 		contactOr: "або",
 		linkedinName: "LinkedIn",

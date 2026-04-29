@@ -37,7 +37,7 @@ const allPostsHref = `${import.meta.env.BASE_URL}uk/blog/`;
 		<section id="projects">
 			<h2 class="section__heading">
 				{t.sections.projectsPrefix}
-				<span>{t.sections.projectsHighlight}</span> 🧙🏻‍♂️
+				<span class="highlight">{t.sections.projectsHighlight}</span> 🧙🏻‍♂️
 			</h2>
 
 			{data.projects.map((e) => <Project data={e} texts={t.project} />)}
@@ -55,7 +55,7 @@ const allPostsHref = `${import.meta.env.BASE_URL}uk/blog/`;
 			<div class="home-blog__intro">
 				<div>
 					<h2 class="section__heading">
-						{t.blog.heading}<span>{t.blog.headingHighlight}</span> ✍️
+						{t.blog.heading}<span class="highlight">{t.blog.headingHighlight}</span> ✍️
 					</h2>
 					<p>{t.blog.subheading}</p>
 				</div>
