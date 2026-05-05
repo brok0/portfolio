@@ -1,5 +1,7 @@
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { applyButtonTilt } from "../../utils/buttonTilt";
+
 let isVisible = false;
 
 function toggle(cardContainer, button, cards, showMoreText, showLessText) {
@@ -38,12 +40,12 @@ function toggle(cardContainer, button, cards, showMoreText, showLessText) {
     );
     gsap.fromTo(
       cards,
-      { opacity: 0, y: 16 },
+      { opacity: 0, x: -50 },
       {
         opacity: 1,
-        y: 0,
+        x: 0,
         duration: 0.4,
-        stagger: 0.08,
+        stagger: 0.1,
         delay: 0.12,
         ease: "power2.out",
       }
@@ -54,7 +56,9 @@ function toggle(cardContainer, button, cards, showMoreText, showLessText) {
   isVisible = !isVisible;
 }
 
-if (typeof document !== "undefined") {
+const initCertificationAnimations = () => {
+  gsap.registerPlugin(ScrollTrigger);
+
   const cardContainer = document.getElementById("certification-more-content");
   const button = document.getElementById("show-more");
   const cards = cardContainer ? Array.from(cardContainer.children) : [];
@@ -69,11 +73,52 @@ if (typeof document !== "undefined") {
     });
   }
 
-  if (button) {
+  // Ensure listeners are not duplicated
+  if (button && !button.dataset.initialized) {
+    button.dataset.initialized = "true";
     button.addEventListener("click", () =>
       toggle(cardContainer, button, cards, showMoreText, showLessText)
     );
   }
 
   applyButtonTilt(".card__links .button");
+
+  // Scroll animation for initial certificates and button
+  const section = document.getElementById("certifications");
+  if (section) {
+    const elementsToAnimate = [
+      ...section.querySelectorAll(":scope > .card__wrap"),
+      button
+    ].filter(Boolean);
+
+    if (elementsToAnimate.length > 0) {
+      // Set initial state before animation
+      gsap.set(elementsToAnimate, { x: -50, opacity: 0 });
+
+      ScrollTrigger.batch(elementsToAnimate, {
+        start: "top 85%",
+        once: true,
+        onEnter: (batch) => {
+          gsap.to(batch, {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.15,
+            ease: "power2.out",
+            delay: 0.5
+          });
+        },
+      });
+    }
+  }
+};
+
+if (typeof document !== "undefined") {
+  document.addEventListener('astro:page-load', initCertificationAnimations);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCertificationAnimations);
+  } else {
+    initCertificationAnimations();
+  }
 }

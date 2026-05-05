@@ -46,7 +46,7 @@ const initExperienceAnimations = () => {
                     y: 0,
                     stagger: 0.03,
                     duration: 0.3,
-                    delay: 0.6,
+                    delay: 1,
                     ease: "power1.out"
                 });
             }
