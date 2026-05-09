@@ -6,6 +6,7 @@
 		gap: 20px 30px;
 		width: fit-content;
 		justify-content: center;
+		padding-left: 7px;
 
 		.skill {
 			border: 0 solid var(--blue-accent);
@@ -13,7 +14,7 @@
 			color: white;
 			border-radius: 10px;
 			padding: 10px;
-			font-size: 20px;
+			font-size: 16px;
 			cursor: pointer;
 		}
 	}

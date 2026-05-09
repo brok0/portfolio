@@ -15,8 +15,12 @@ const en = {
 		blog: "Blog",
 	},
 	hero: {
-		greeting: "Hi, I'm Borys Hlynskyi",
+		hi: "Hi",
+		name: "I'm Borys Hlynskyi",
 		subtitle: "Web developer from Ukraine specializing in frontend",
+		availabilityOpen: "Open for new opportunities",
+		getInTouch: "Get in touch",
+		experience: "Experience",
 	},
 	sections: {
 		projectsPrefix: "My",

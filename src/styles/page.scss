@@ -16,6 +16,7 @@
 		}
 
 	}
+
 	&__wrap {
 		display: flex;
 		flex-direction: column;
@@ -29,6 +30,7 @@
 		padding: 60px;
 		position: relative;
 		margin: 40px;
+
 		@media (max-width: 500px) {
 			text-align: center;
 			padding: 60px 20px;
@@ -43,6 +45,7 @@
 
 	&__title {
 		font-size: 4rem;
+
 		@media (max-width: 500px) {
 			font-size: 2.5rem;
 		}
@@ -50,6 +53,7 @@
 
 	&__subtitle {
 		font-size: 2rem;
+
 		@media (max-width: 500px) {
 			font-size: 1rem;
 		}
@@ -59,6 +63,7 @@
 		display: flex;
 		justify-content: center;
 		gap: 20px;
+
 		.button {
 			font-size: 1.5rem;
 			padding: 20px;
@@ -71,6 +76,7 @@
 
 		@media (max-width: 500px) {
 			flex-direction: column;
+
 			& &--mobile {
 				display: block;
 
@@ -97,6 +103,7 @@ h2 {
 		padding-bottom: 0;
 		@include gradientText();
 	}
+
 	&.subhead {
 		border-bottom: none;
 		margin: auto;
@@ -105,10 +112,7 @@ h2 {
 	}
 }
 
-.name {
-	text-align: center;
-	margin-bottom: 0;
-}
+
 
 h2,
 h3 {
@@ -141,6 +145,7 @@ h2 {
 		color: var(--text-muted);
 	}
 }
+
 .contact__section {
 	max-width: unset;
 	margin: 0;
@@ -150,6 +155,7 @@ h2 {
 @media (max-width: 1000px) {
 	.experience__section {
 		background-color: var(--blue-accent);
+
 		.waves-block.experience {
 			background-color: var(--blue-accent);
 
@@ -191,7 +197,7 @@ h2 {
 }
 
 .copy-btn {
-	background-color: transparent;	
+	background-color: transparent;
 	border: 0;
 	cursor: pointer;
 }

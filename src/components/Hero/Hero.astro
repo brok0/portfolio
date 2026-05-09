@@ -1,0 +1,45 @@
+---
+import Skills from "../SkillsBlock/Skills.astro";
+import "../../styles/hero.scss";
+export interface Props {
+	t: any;
+	data: any;
+}
+
+const { t, data } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero__wrap">
+    <div class="hero__wrap-main">
+      <div class="hero__badge">
+        <span class="hero__badge-dot"></span>
+        <span class="hero__badge-text">{t.availabilityOpen}</span>
+      </div>
+      <h1 class="hero__name">
+        <span class="hero__name-text">{t.hi}<span class="hero__wave">👋🏻</span> {t.name} 
+        </span>
+      </h1>
+      <h2 class="hero__subhead">{t.subtitle}</h2>
+      
+      <div class="hero__skills-container">
+        <Skills skills={data.skills} />
+      </div>
+      
+      <div class="hero__actions">
+        <a href="#contacts" class="hero__btn hero__btn--primary">{t.getInTouch}</a>
+        <a href="#experience" class="hero__btn hero__btn--secondary">{t.experience}</a>
+      </div>
+    </div>
+    
+    <div class="hero__visual">
+      <div class="hero__img-wrapper">
+        <div class="hero__img-backdrop"></div>
+        <div class="hero__img"></div>
+        <div class="hero__img-border"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="./hero.js"></script>

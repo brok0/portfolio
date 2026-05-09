@@ -15,8 +15,12 @@ const uk = {
 		blog: "Блог",
 	},
 	hero: {
-		greeting: "Привіт, я Глинський Борис",
+		hi: "Привіт",
+		name: "я Глинський Борис",
 		subtitle: "Веб-розробник з України, спеціалізація - frontend",
+		availabilityOpen: "Відкритий до нових можливостей",
+		getInTouch: "Зв'яжіться зі мною",
+		experience: "Досвід",
 	},
 	sections: {
 		projectsPrefix: "Мої",

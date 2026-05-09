@@ -5,7 +5,6 @@ import data from "../data/en.json";
 import Project from "../components/Project/Project.astro";
 import LinkButton from "../components/LinkButton.astro";
 import Experience from "../components/ExperienceBlock/Experience.astro";
-import Skills from "../components/SkillsBlock/Skills.astro";
 import Certifications from "../components/Certificate/Certifications.astro";
 import "../styles/page.scss";
 import "../styles/global.scss";
@@ -14,6 +13,7 @@ import AboutMe from "../components/AboutMe/AboutMe.astro";
 import BlogCard from "../components/Blog/BlogCard.astro";
 import { getTranslation } from "../i18n";
 import { getBlogPostsByLocale } from "../utils/blog";
+import Hero from "../components/Hero/Hero.astro";
 
 const t = getTranslation("en");
 const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
@@ -28,13 +28,11 @@ const allPostsHref = `${import.meta.env.BASE_URL}blog/`;
 <Layout title={t.meta.title} lang="en" description={t.meta.description}>
 	<Header labels={t.header} currentLocale="en" />
 	<main>
-		<section>
-			<h1 class="name">👋🏻 {t.hero.greeting}</h1>
-			<h2 class="subhead">{t.hero.subtitle}</h2>
-			<Skills skills={data.skills} />
-
-			<AboutMe texts={t.about} />
+		<section >
+			<Hero t={t.hero} data={data} />
 		</section>
+
+		<section><AboutMe texts={t.about} /></section>
 
 		<section id="projects">
 			<h2 class="section__heading">
