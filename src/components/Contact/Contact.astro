@@ -1,0 +1,102 @@
+---
+import LinkButton from "../LinkButton.astro";
+import "./contact.scss";
+
+export interface Props {
+	texts: {
+		contactTitle: string;
+		contactSubtitle: string;
+		contactOr: string;
+		linkedinName: string;
+		sendEmail: string;
+		linkedinProfile: string;
+	};
+	cvText: string;
+}
+
+const { texts, cvText } = Astro.props;
+const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
+---
+<section class="contact-section" id="contacts">
+	<div class="contact-card">
+		<div class="contact-card-bg"></div>
+		<h2 class="contact-title">{texts.contactTitle}</h2>
+		<p class="contact-subtitle">
+			{texts.contactSubtitle}
+			<span class="contact-email">
+				<b>bglinskii6@gmail.com</b>
+				<button class="copy-btn" type="button" data-copy-email="bglinskii6@gmail.com" aria-label="Copy email to clipboard" title="Copy email">
+					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115.77 122.88" class="copy-icon">
+						<path d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/>
+					</svg>
+				</button>
+				<span class="copy-feedback" aria-live="polite"></span>
+			</span>
+			<br />
+			<span class="contact-or">{texts.contactOr}</span> <b>{texts.linkedinName}</b>
+		</p>
+
+		<div class="contact-buttons">
+			<LinkButton link="mailto:bglinskii6@gmail.com" text={texts.sendEmail} />
+			<LinkButton link="https://www.linkedin.com/in/borys-hlynskyi-16785b15b/" text={texts.linkedinProfile} />
+			<div class="contact-buttons-mobile">
+				<LinkButton download={{ link: cvPath, file: "CV_Borys_Hlynskyi.pdf" }} text={cvText} />
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	import { applyButtonTilt } from "../../utils/buttonTilt";
+
+	const initContact = () => {
+		applyButtonTilt(".contact-buttons .button");
+
+		const copyEmailButton = document.querySelector(".copy-btn");
+		const copyFeedback = document.querySelector(".copy-feedback");
+		let feedbackTimeoutId;
+
+		const showCopyFeedback = (message) => {
+			if (!copyFeedback) return;
+			copyFeedback.textContent = message;
+			copyFeedback.classList.add("is-visible");
+
+			window.clearTimeout(feedbackTimeoutId);
+			feedbackTimeoutId = window.setTimeout(() => {
+				copyFeedback.classList.remove("is-visible");
+				copyFeedback.textContent = "";
+			}, 1800);
+		};
+
+		if (copyEmailButton && !copyEmailButton.dataset.initialized) {
+			copyEmailButton.dataset.initialized = "true";
+			copyEmailButton.addEventListener("click", async () => {
+				const email = copyEmailButton.getAttribute("data-copy-email");
+				if (!email) return;
+
+				try {
+					await navigator.clipboard.writeText(email);
+					showCopyFeedback("Copied!");
+				} catch {
+					const textarea = document.createElement("textarea");
+					textarea.value = email;
+					textarea.setAttribute("readonly", "");
+					textarea.style.position = "absolute";
+					textarea.style.left = "-9999px";
+					document.body.appendChild(textarea);
+					textarea.select();
+					document.execCommand("copy");
+					document.body.removeChild(textarea);
+					showCopyFeedback("Copied!");
+				}
+			});
+		}
+	};
+
+	document.addEventListener('astro:page-load', initContact);
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initContact);
+	} else {
+		initContact();
+	}
+</script>

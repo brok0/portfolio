@@ -1,0 +1,189 @@
+@import "../../styles/mixins.scss";
+
+.contact-section {
+	max-width: unset;
+	margin: 0;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 150px 20px;
+	min-height: 80vh;
+	overflow: hidden;
+	background-image: url("/contact-bg.svg");
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	
+	@media (max-width: 1000px) {
+		padding: 100px 20px;
+		min-height: unset;
+	}
+}
+
+.contact-card {
+	position: relative;
+	z-index: 1;
+	max-width: 800px;
+	width: 100%;
+	padding: 60px;
+	border-radius: 24px;
+	background: var(--surface-glass);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+	border: 1px solid var(--border-color);
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
+	            inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+	text-align: center;
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+	&:hover {
+		transform: translateY(-5px);
+		box-shadow: 0 12px 48px rgba(0, 0, 0, 0.15),
+		            inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+	}
+
+	@media (max-width: 768px) {
+		padding: 40px 20px;
+	}
+}
+
+.contact-card-bg {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	right: -2px;
+	bottom: -2px;
+	background: var(--purple-to-blue-gradient);
+	z-index: -1;
+	border-radius: 26px;
+	opacity: 0.15;
+	filter: blur(10px);
+}
+
+.contact-title {
+	font-family: "Syne", sans-serif;
+	font-size: clamp(2.5rem, 6vw, 4.5rem);
+	font-weight: 800;
+	margin-bottom: 1.5rem;
+	background: var(--purple-to-blue-gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	display: inline-block;
+	border: none;
+	padding: 0;
+	line-height: 1.2;
+}
+
+.contact-subtitle {
+	font-size: clamp(1.1rem, 3vw, 1.5rem);
+	color: var(--text-secondary);
+	margin-bottom: 2.5rem;
+	line-height: 1.6;
+
+	b {
+		color: var(--text-primary);
+		font-weight: 600;
+	}
+}
+
+.contact-email {
+	display: inline-flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 16px;
+	margin: 12px 0;
+	background: var(--background-secondary);
+	border-radius: 12px;
+	border: 1px solid var(--border-color);
+
+	b {
+		font-size: 1.2rem;
+		@media (max-width: 500px) {
+			font-size: 1rem;
+		}
+	}
+}
+
+.copy-btn {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	padding: 8px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.2s ease, transform 0.2s ease;
+
+	&:hover {
+		background: var(--border-color);
+		transform: scale(1.05);
+	}
+
+	&:active {
+		transform: scale(0.95);
+	}
+}
+
+.copy-icon {
+	width: 20px;
+	height: 20px;
+	fill: var(--text-primary);
+}
+
+.copy-feedback {
+	font-size: 0.9rem;
+	font-weight: 600;
+	color: var(--purple-accent);
+	opacity: 0;
+	transform: translateX(-10px);
+	transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+	position: absolute;
+	margin-left: 100%;
+	white-space: nowrap;
+
+	&.is-visible {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+.contact-or {
+	display: inline-block;
+	margin-top: 10px;
+	color: var(--text-muted);
+}
+
+.contact-buttons {
+	display: flex;
+	justify-content: center;
+	gap: 20px;
+	flex-wrap: wrap;
+
+	:global(.button) {
+		font-size: 1.1rem;
+		padding: 16px 32px;
+		min-width: 200px;
+		justify-content: center;
+		margin: 0;
+	}
+
+	&-mobile {
+		display: none;
+	}
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+		width: 100%;
+
+		:global(.button) {
+			width: 100%;
+		}
+
+		&-mobile {
+			display: block;
+			width: 100%;
+		}
+	}
+}
