@@ -162,6 +162,11 @@
       width: 400px;
       height: 400px;
     }
+
+    @media (max-width: 500px) {
+      width: 250px;
+      height: 250px;
+    }
   }
 
   &__img {
@@ -288,5 +293,12 @@
   100% {
     transform: rotate(360deg);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+[lang="uk"] {
+
+  .hero__btn {
+    font-size: 20px;
   }
 }
