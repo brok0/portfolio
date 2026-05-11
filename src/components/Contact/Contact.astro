@@ -3,9 +3,9 @@ import LinkButton from "../LinkButton.astro";
 import "./contact.scss";
 
 export interface Props {
+	title: string;
+	subtitle: string;
 	texts: {
-		contactTitle: string;
-		contactSubtitle: string;
 		contactOr: string;
 		linkedinName: string;
 		sendEmail: string;
@@ -14,15 +14,15 @@ export interface Props {
 	cvText: string;
 }
 
-const { texts, cvText } = Astro.props;
+const { title, subtitle, texts, cvText } = Astro.props;
 const cvPath = `${import.meta.env.BASE_URL}CV_Borys_Hlynskyi.pdf`;
 ---
 <section class="contact-section" id="contacts">
 	<div class="contact-card">
 		<div class="contact-card-bg"></div>
-		<h2 class="contact-title">{texts.contactTitle}</h2>
+		<h2 class="contact-title">{title}</h2>
 		<p class="contact-subtitle">
-			{texts.contactSubtitle}
+			{subtitle}
 			<span class="contact-email">
 				<b>bglinskii6@gmail.com</b>
 				<button class="copy-btn" type="button" data-copy-email="bglinskii6@gmail.com" aria-label="Copy email to clipboard" title="Copy email">
