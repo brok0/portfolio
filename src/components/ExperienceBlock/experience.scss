@@ -1,4 +1,4 @@
-@import "./mixins.scss";
+@import "../../styles/mixins.scss";
 
 .experience-container {
 	margin-top: 200px;
@@ -9,7 +9,7 @@
 	max-width: 1000px;
 	margin: 0 auto;
 	padding: 40px;
-	
+
 	background-color: var(--surface-glass);
 	backdrop-filter: blur(16px);
 	-webkit-backdrop-filter: blur(16px);
@@ -39,14 +39,16 @@
 		margin-bottom: 40px;
 		border-bottom: 0;
 		padding-bottom: 0;
+
 		b {
 			@include gradientText();
 		}
 	}
-	&.visible  .animated-text {
-			opacity: 1;
-			transform: translateY(0);
-		}
+
+	&.visible .animated-text {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .timeline {
@@ -102,16 +104,18 @@
 		transition-delay: 0.3s;
 		animation: pulsingCircle 4s ease-in-out infinite;
 	}
-	
+
 	@keyframes pulsingCircle {
 		0% {
-			scale: 	1.3;
+			scale: 1.3;
 			opacity: 1;
 		}
+
 		50% {
 			scale: 1;
 			opacity: 0.2;
 		}
+
 		100% {
 			scale: 1.3;
 			opacity: 1;
@@ -136,7 +140,7 @@
 			transform: translateX(5px);
 			background-color: rgba(149, 1, 255, 0.05);
 		}
-		
+
 		:root[data-theme="dark"] & {
 			&:hover {
 				background-color: rgba(182, 136, 255, 0.08);
@@ -200,6 +204,7 @@
 	from {
 		transform: rotate(0deg);
 	}
+
 	to {
 		transform: rotate(360deg);
 	}
@@ -250,13 +255,11 @@
 		z-index: 1;
 		filter: blur(1px);
 		opacity: 1;
-		background: radial-gradient(
-			circle at 30% 30%,
-			rgba(255, 242, 176, 0.98) 0%,
-			rgba(255, 217, 120, 0.84) 45%,
-			rgba(255, 174, 76, 0.25) 70%,
-			rgba(255, 174, 76, 0) 100%
-		);
+		background: radial-gradient(circle at 30% 30%,
+				rgba(255, 242, 176, 0.98) 0%,
+				rgba(255, 217, 120, 0.84) 45%,
+				rgba(255, 174, 76, 0.25) 70%,
+				rgba(255, 174, 76, 0) 100%);
 		box-shadow: 0 0 80px rgba(255, 196, 84, 0.45),
 			0 0 180px rgba(255, 170, 70, 0.22);
 	}
@@ -267,11 +270,9 @@
 		animation: waveDriftBack 13s ease-in-out infinite alternate;
 
 		.wave-shape {
-			fill: color-mix(
-				in srgb,
-				var(--blue-accent) 60%,
-				var(--background-light) 40%
-			);
+			fill: color-mix(in srgb,
+					var(--blue-accent) 60%,
+					var(--background-light) 40%);
 		}
 	}
 
@@ -292,11 +293,9 @@
 		animation: waveDriftFront 6.5s ease-in-out infinite alternate;
 
 		.wave-shape {
-			fill: color-mix(
-				in srgb,
-				var(--blue-accent) 82%,
-				var(--background-secondary) 18%
-			);
+			fill: color-mix(in srgb,
+					var(--blue-accent) 82%,
+					var(--background-secondary) 18%);
 		}
 	}
 
@@ -307,11 +306,9 @@
 		bottom: -2px;
 		height: 72px;
 		z-index: 3;
-		background: linear-gradient(
-			180deg,
-			rgba(36, 80, 193, 0) 0%,
-			rgba(36, 80, 193, 0.65) 100%
-		);
+		background: linear-gradient(180deg,
+				rgba(36, 80, 193, 0) 0%,
+				rgba(36, 80, 193, 0.65) 100%);
 		filter: blur(14px);
 		opacity: 0.9;
 	}
@@ -320,9 +317,11 @@
 		0% {
 			transform: translate(-50%, 10px) scale(1.04);
 		}
+
 		50% {
 			transform: translate(-48.5%, 24px) scale(1.09);
 		}
+
 		100% {
 			transform: translate(-51.2%, 16px) scale(1.03);
 		}
@@ -332,9 +331,11 @@
 		0% {
 			transform: translate(-49%, 38px) scale(1.02);
 		}
+
 		50% {
 			transform: translate(-50.2%, 12px) scale(1.03);
 		}
+
 		100% {
 			transform: translate(-48.6%, 7px) scale(1.01);
 		}
@@ -344,15 +345,18 @@
 		0% {
 			transform: translate(-53%, 0) scale(1);
 		}
+
 		50% {
 			transform: translate(-51.1%, 3px) scale(1.01);
 		}
+
 		100% {
 			transform: translate(-44.4%, -1px) scale(0.99);
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
+
 		.waves--back,
 		.waves--mid,
 		.waves--front {
@@ -361,6 +365,7 @@
 	}
 
 	@media (max-width: 1000px) {
+
 		.waves--back,
 		.waves--mid,
 		.waves--front {
@@ -370,13 +375,11 @@
 
 	:root[data-theme="dark"] & {
 		.wave-orb {
-			background: radial-gradient(
-				circle at 35% 30%,
-				rgba(240, 243, 255, 0.96) 0%,
-				rgba(208, 220, 255, 0.84) 45%,
-				rgba(154, 179, 255, 0.28) 72%,
-				rgba(154, 179, 255, 0) 100%
-			);
+			background: radial-gradient(circle at 35% 30%,
+					rgba(240, 243, 255, 0.96) 0%,
+					rgba(208, 220, 255, 0.84) 45%,
+					rgba(154, 179, 255, 0.28) 72%,
+					rgba(154, 179, 255, 0) 100%);
 			box-shadow: 0 0 90px rgba(180, 197, 255, 0.35),
 				0 0 180px rgba(108, 138, 255, 0.2);
 		}
@@ -389,4 +392,3 @@
 	}
 
 }
-
