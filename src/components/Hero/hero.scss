@@ -181,6 +181,7 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     animation: morph 8s ease-in-out infinite both alternate;
     border: 3px solid var(--surface-glass);
+
   }
 
   &__img-backdrop {
@@ -191,10 +192,15 @@
     bottom: -5%;
     background: var(--purple-to-blue-gradient);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-    filter: blur(40px);
+    filter: blur(30px);
     opacity: 0.6;
     z-index: 0;
     animation: morph 8s ease-in-out infinite both alternate-reverse;
+
+    @media (max-width: 500px) {
+      filter: blur(10px);
+
+    }
   }
 
   &__img-border {
