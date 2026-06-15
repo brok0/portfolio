@@ -53,6 +53,23 @@ const flagIconPath = `${import.meta.env.BASE_URL}Flag_of_Ukraine.svg`;
 				}
 			</div>
 
+		<div class="about__languages">
+				<p class="languages__title">{texts.languages.title}</p>
+				<div class="languages__list">
+					{
+						texts.languages.list.map((item) => (
+							<div class="language-item">
+								<div>{item.flag}</div>
+								<div class="language-item__text">
+									{item.language}
+									 - <em>{item.level}</em>
+								</div>
+							</div>
+						))
+					}
+				</div>
+			</div>
+			
 			<div class="about__focuses">
 				<p class="focuses__title">{texts.focusesTitle}</p>
 				<div class="focuses__list">
@@ -70,22 +87,7 @@ const flagIconPath = `${import.meta.env.BASE_URL}Flag_of_Ukraine.svg`;
 				</div>
 			</div>
 
-			<div class="about__languages">
-				<p class="languages__title">{texts.languages.title}</p>
-				<div class="languages__list">
-					{
-						texts.languages.list.map((item) => (
-							<div class="language-item">
-								<div>{item.flag}</div>
-								<div class="language-item__text">
-									{item.language}
-									 - <em>{item.level}</em>
-								</div>
-							</div>
-						))
-					}
-				</div>
-			</div>
+	
 
 			<div class="about__availability">
 				<div class="availability__text">
