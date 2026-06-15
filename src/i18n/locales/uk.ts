@@ -71,8 +71,15 @@ const uk = {
 			},
 		],
 		availabilityOpen: "Відкритий до нових можливостей",
-		availabilityRemote: "Працюю віддалено",
-		availabilityCountry: "Україна",
+		availabilityRemote: "Remote-friendly",
+		availabilityCountry: "💛💙 Україна",
+		languages: {
+			title: "Мови",
+			list: [
+				{ language: "Англійська", level: "B2+", flag: "🌏" },
+				{ language: "Українська", level: "Рідна", flag: "🗣️" },
+			],
+		},
 	},
 	experience: {
 		experienceHeading: "Досвід",

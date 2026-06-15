@@ -72,7 +72,14 @@ const en = {
 		],
 		availabilityOpen: "Open to new opportunities",
 		availabilityRemote: "Remote-friendly",
-		availabilityCountry: "Ukraine",
+		availabilityCountry: "Ukraine 💛💙",
+		languages: {
+			title: "Languages",
+			list: [
+				{ language: "English", level: "B2+", flag: "🌏" },
+				{ language: "Ukrainian", level: "Native", flag: "🗣️" },
+			],
+		},
 	},
 	experience: {
 		experienceHeading: "Experience",
