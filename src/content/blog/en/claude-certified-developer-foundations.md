@@ -17,4 +17,4 @@ I prepared entirely with Anthropic's free training resources. The format is most
 
 Much of it covers foundational material, so it's not deeply advanced. Still, finishing it felt like a real accomplishment, and I'd recommend it to anyone building applications or agents on top of Claude.
 
-![Certificate](/public/CCDF-certificate.png)
+![Certificate](/CCDF-certificate.png)
