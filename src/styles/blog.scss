@@ -134,13 +134,17 @@
 	}
 	&__content {
 		margin-top: 2rem;
-color: var(--text-primary);
+		color: var(--text-primary);
 		p {
 			color: var(--text-secondary);
 			font-size: 1.125rem;
+			img {
+				max-width: 800px;
+				margin: 20px 0px;
+			}
 		}
 
-		h3{
+		h3 {
 			color: var(--text-primary);
 		}
 	}

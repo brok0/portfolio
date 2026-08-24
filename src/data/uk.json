@@ -19,6 +19,21 @@
 	],
 	"certificates": [
 		{
+			"title": "Claude Certified Developer – Foundations by Anthropic",
+			"author": "Anthropic",
+			"description": "Прокторингована практична сертифікація для інженерів, які розробляють застосунки з використанням Claude. Вона охоплює створення агентів і робочих процесів за допомогою Claude Agent SDK, інтеграцію Claude через API та клієнтські SDK, розробку власних інструментів і MCP-серверів, промпт-інженерію та інженерію контексту, а також оцінювання й оптимізацію систем на базі Claude у production-середовищі. Сертифікацію склав з результатом 896/1000.",
+			"links": [
+				{
+					"title": "Посилання на курс",
+					"url": "https://anthropic-partners.skilljar.com/path/claude-certified-developer-foundations"
+				},
+				{
+					"title": "Сертифікат",
+					"url": "https://www.credly.com/badges/4a80378b-a408-4d40-9ba7-89160a5ee461"
+				}
+			]
+		},
+		{
 			"title": "Object-Oriented Design від University of Alberta",
 			"author": "University of Alberta",
 			"description": "Цей курс виводить початківців у Java на новий рівень через об'єктно-орієнтований аналіз і проєктування. Ви навчитесь створювати модульне, гнучке та повторно використовуване ПЗ, застосовуючи принципи й підходи OOP. Також зможете описувати рішення у візуальній нотації UML.",
