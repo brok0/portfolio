@@ -13,6 +13,10 @@ export interface Props {
 		showMore: string;
 		showLess: string;
 		authorLabel: string;
+		featuredBadge?: string;
+		scoreLabel?: string;
+		proctoredLabel?: string;
+		verifiedLabel?: string;
 	};
 }
 
@@ -24,13 +28,18 @@ const { certificates, texts } = Astro.props;
 {
 	certificates
 		.slice(0, 3)
-		.map((e) => (
+		.map((e, index) => (
 			<Certificate
 				title={e.title}
 				description={e.description}
 				links={e.links}
 				author={e.author}
 				authorLabel={texts.authorLabel}
+				isHighlighted={index === 0}
+				badgeLabel={texts.featuredBadge}
+				scoreLabel={texts.scoreLabel}
+				proctoredLabel={texts.proctoredLabel}
+				verifiedLabel={texts.verifiedLabel}
 			/>
 		))
 }

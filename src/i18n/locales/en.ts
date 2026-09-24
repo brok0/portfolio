@@ -102,6 +102,10 @@ const en = {
 		showMore: "Show More",
 		showLess: "Show Less",
 		authorLabel: "Author",
+		featuredBadge: "Claude Certified",
+		scoreLabel: "Score 896 / 1000",
+		proctoredLabel: "Proctored Exam",
+		verifiedLabel: "Verified Credential",
 	},
 	project: {
 		code: "Code",

@@ -13,11 +13,9 @@
 	--blue-accent: #2450c1;
 	--button-hover: #4a90e2;
 	--border-color: #dcdcdc;
-	--purple-to-blue-gradient: linear-gradient(
-		90deg,
-		var(--purple-accent) 0%,
-		var(--blue-accent) 100%
-	);
+	--purple-to-blue-gradient: linear-gradient(90deg,
+			var(--purple-accent) 0%,
+			var(--blue-accent) 90%);
 
 	--font-size-h1: 4rem;
 	--font-size-h2: 2rem;

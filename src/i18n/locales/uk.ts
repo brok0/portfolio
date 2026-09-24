@@ -103,6 +103,10 @@ const uk = {
 		showMore: "Показати більше",
 		showLess: "Показати менше",
 		authorLabel: "Автор",
+		featuredBadge: "Сертифікація Claude",
+		scoreLabel: "Результат 896 / 1000",
+		proctoredLabel: "Прокторинговий іспит",
+		verifiedLabel: "Підтверджений сертифікат",
 	},
 	project: {
 		code: "Код",

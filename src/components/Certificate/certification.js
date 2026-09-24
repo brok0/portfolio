@@ -81,43 +81,198 @@ const initCertificationAnimations = () => {
     );
   }
 
-  applyButtonTilt(".card__links .button");
+  applyButtonTilt(".card__wrap--featured .card__links .button");
 
-  // Scroll animation for initial certificates and button
   const section = document.getElementById("certifications");
-  if (section) {
-    const elementsToAnimate = [
-      ...section.querySelectorAll(":scope > .card__wrap"),
-      button
-    ].filter(Boolean);
+  if (!section) return;
 
-    if (elementsToAnimate.length > 0) {
-      // Set initial state before animation
-      gsap.set(elementsToAnimate, { x: -50, opacity: 0 });
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      ScrollTrigger.batch(elementsToAnimate, {
+  // 1. Featured Claude Certification GSAP Animation
+  const featuredWrap = section.querySelector(".card__wrap--featured");
+  if (featuredWrap && !featuredWrap.dataset.animated) {
+    featuredWrap.dataset.animated = "true";
+
+    const cardInner = featuredWrap.querySelector(".card--featured");
+    const emblem = featuredWrap.querySelector("[data-claude-emblem]");
+    const watermark = featuredWrap.querySelector("[data-claude-watermark]");
+    const badges = featuredWrap.querySelectorAll(".card__badge");
+    const auraGlow = featuredWrap.querySelector("[data-aura-glow]");
+
+    if (prefersReducedMotion) {
+      gsap.set(featuredWrap, { opacity: 1, y: 0, scale: 1 });
+      if (auraGlow) gsap.set(auraGlow, { opacity: 0.6 });
+    } else {
+      // Initial state before ScrollTrigger entry
+      gsap.set(featuredWrap, { y: 35, opacity: 0, scale: 0.97 });
+      if (emblem) gsap.set(emblem, { scale: 0, rotation: -45, transformOrigin: "center center" });
+      if (badges.length) gsap.set(badges, { y: 10, opacity: 0 });
+      if (auraGlow) gsap.set(auraGlow, { opacity: 0, scale: 0.92 });
+
+      ScrollTrigger.create({
+        trigger: featuredWrap,
         start: "top 85%",
         once: true,
-        onEnter: (batch) => {
-          gsap.to(batch, {
-            x: 0,
+        onEnter: () => {
+          const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+          tl.to(featuredWrap, {
+            y: 0,
             opacity: 1,
-            duration: 0.6,
-            stagger: 0.15,
-            ease: "power2.out",
-            delay: 0.5
-          });
+            scale: 1,
+            duration: 0.85,
+          })
+            .to(
+              auraGlow,
+              {
+                opacity: 0.65,
+                scale: 1,
+                duration: 0.9,
+              },
+              "-=0.6"
+            )
+            .to(
+              emblem,
+              {
+                scale: 1,
+                rotation: 0,
+                duration: 0.75,
+                ease: "back.out(2)",
+              },
+              "-=0.6"
+            )
+            .to(
+              badges,
+              {
+                y: 0,
+                opacity: 1,
+                stagger: 0.08,
+                duration: 0.45,
+              },
+              "-=0.4"
+            );
         },
       });
+
+      // Ambient rotating Claude watermark
+      if (watermark) {
+        gsap.to(watermark, {
+          rotation: 360,
+          duration: 120,
+          repeat: -1,
+          ease: "none",
+        });
+      }
+
+      // Ambient aura breathing
+      if (auraGlow) {
+        gsap.to(auraGlow, {
+          opacity: 0.78,
+          scale: 1.025,
+          duration: 3,
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+        });
+      }
+
+      // Interactive 3D tilt & spotlight tracking
+      featuredWrap.addEventListener("mousemove", (e) => {
+        const rect = featuredWrap.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        if (cardInner) {
+          gsap.to(cardInner, {
+            rotateY: x * 7,
+            rotateX: -y * 7,
+            transformPerspective: 900,
+            duration: 0.25,
+            ease: "power1.out",
+          });
+        }
+
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        featuredWrap.style.setProperty("--mouse-x", `${mouseX}px`);
+        featuredWrap.style.setProperty("--mouse-y", `${mouseY}px`);
+      });
+
+      featuredWrap.addEventListener("mouseenter", () => {
+        if (emblem) {
+          gsap.to(emblem, {
+            rotate: "+=180",
+            scale: 1.12,
+            duration: 0.6,
+            ease: "back.out(1.6)",
+          });
+        }
+        if (auraGlow) {
+          gsap.to(auraGlow, { opacity: 0.9, scale: 1.04, duration: 0.35 });
+        }
+      });
+
+      featuredWrap.addEventListener("mouseleave", () => {
+        if (cardInner) {
+          gsap.to(cardInner, {
+            rotateY: 0,
+            rotateX: 0,
+            duration: 0.7,
+            ease: "power3.out",
+          });
+        }
+        if (emblem) {
+          gsap.to(emblem, { scale: 1, duration: 0.4, ease: "power2.out" });
+        }
+        if (auraGlow) {
+          gsap.to(auraGlow, { opacity: 0.65, scale: 1, duration: 0.7, ease: "power3.out" });
+        }
+      });
+
+      emblem?.addEventListener("click", () => {
+        gsap.to(emblem, {
+          rotate: "+=360",
+          scale: 1.25,
+          duration: 0.6,
+          ease: "back.out(2)",
+          onComplete: () => gsap.to(emblem, { scale: 1, duration: 0.3 }),
+        });
+      });
     }
+  }
+
+  // 2. Scroll animation for remaining certificates and show more button
+  const otherElementsToAnimate = [
+    ...Array.from(section.querySelectorAll(":scope > .card__wrap:not(.card__wrap--featured)")),
+    button,
+  ].filter(Boolean);
+
+  if (otherElementsToAnimate.length > 0) {
+    gsap.set(otherElementsToAnimate, { x: -50, opacity: 0 });
+
+    ScrollTrigger.batch(otherElementsToAnimate, {
+      start: "top 85%",
+      once: true,
+      onEnter: (batch) => {
+        gsap.to(batch, {
+          x: 0,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.15,
+          ease: "power2.out",
+          delay: 0.3,
+        });
+      },
+    });
   }
 };
 
 if (typeof document !== "undefined") {
-  document.addEventListener('astro:page-load', initCertificationAnimations);
+  document.addEventListener("astro:page-load", initCertificationAnimations);
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCertificationAnimations);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initCertificationAnimations);
   } else {
     initCertificationAnimations();
   }

@@ -12,6 +12,7 @@ const { link, text, download } = Astro.props;
 	href={download ? download.link : link}
 	download={download ? download.file : undefined}
 	class="button"
+	target="_blank"
 >
 	{text}
 </a>

@@ -1,6 +1,7 @@
 ---
-import LinkButton from "../LinkButton.astro";
+import ClaudeLogo from "./ClaudeLogo.astro";
 import "./certificate.scss";
+
 export interface Props {
 	title: string;
 	description: string;
@@ -8,26 +9,174 @@ export interface Props {
 	author?: string;
 	authorLabel?: string;
 	classList?: string;
+	isHighlighted?: boolean;
+	badgeLabel?: string;
+	scoreLabel?: string;
+	proctoredLabel?: string;
+	verifiedLabel?: string;
 }
 
-const { links, title, description, author, authorLabel = "Author", classList } = Astro.props;
+const {
+	links,
+	title,
+	description,
+	author,
+	authorLabel = "Author",
+	classList = "",
+	isHighlighted = false,
+	badgeLabel,
+	scoreLabel,
+	proctoredLabel,
+	verifiedLabel,
+} = Astro.props;
 ---
 
-<div class=`card__wrap ${classList} `>
-	<div class="card">
+<div
+	class:list={[
+		"card__wrap",
+		{ "card__wrap--featured": isHighlighted },
+		classList,
+	]}
+	data-featured-card={isHighlighted ? "true" : undefined}
+>
+	{isHighlighted && <div class="card__aura-glow" data-aura-glow aria-hidden="true" />}
+	<div class:list={["card", { "card--featured": isHighlighted }]}>
+		{
+			isHighlighted && (
+				<>
+					<div class="card__spotlight" data-spotlight aria-hidden="true" />
+					<div class="card__claude-watermark" data-claude-watermark aria-hidden="true">
+						<ClaudeLogo size={240} />
+					</div>
+				</>
+			)
+		}
+
 		<div>
-			<h4>{title}</h4>
+			{
+				isHighlighted && (
+					<div class="card__featured-top">
+						<div class="card__claude-emblem" data-claude-emblem title="Claude by Anthropic">
+							<ClaudeLogo size={30} class="card__claude-icon" />
+						</div>
+						<div class="card__badges">
+							<span class="card__badge card__badge--claude">
+								<span class="card__badge-pulse" aria-hidden="true" />
+								{badgeLabel || "Claude Certified"}
+							</span>
+							<span class="card__badge card__badge--proctored">
+								<svg
+									viewBox="0 0 24 24"
+									width="13"
+									height="13"
+									fill="currentColor"
+									class="card__badge-icon"
+									aria-hidden="true"
+								>
+									<path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+								</svg>
+								{proctoredLabel || "Proctored Exam"}
+							</span>
+							<span class="card__badge card__badge--score">
+								<svg
+									viewBox="0 0 24 24"
+									width="13"
+									height="13"
+									fill="currentColor"
+									class="card__badge-icon"
+									aria-hidden="true"
+								>
+									<path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+								</svg>
+								{scoreLabel || "Score 896 / 1000"}
+							</span>
+						</div>
+					</div>
+				)
+			}
+
+			<h4 class="card__title">{title}</h4>
 			{
 				author && (
-					<p>
-						<b>{authorLabel}:</b> {author}
+					<p class="card__author-line">
+						<b>{authorLabel}:</b> <span>{author}</span>
+						{isHighlighted && (
+							<span class="card__author-verified">
+								<svg
+									viewBox="0 0 24 24"
+									width="13"
+									height="13"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+								</svg>
+								{verifiedLabel || "Verified"}
+							</span>
+						)}
 					</p>
 				)
 			}
-			<p>{description}</p>
+			<p class="card__description">
+				{description}
+			</p>
 		</div>
+
 		<div class="card__links">
-			{links.map((link) => <LinkButton link={link.url} text={link.title} />)}
+			{
+				links.map((link, idx) => {
+					const isPrimary =
+						link.url.includes("credly") ||
+						link.title.toLowerCase().includes("certificate") ||
+						link.title.toLowerCase().includes("сертифікат") ||
+						idx === 1;
+
+					return (
+						<a
+							href={link.url}
+							target="_blank"
+							rel="noopener noreferrer"
+							class:list={[
+								"button",
+								isHighlighted
+									? isPrimary
+										? "button--featured-primary"
+										: "button--featured-secondary"
+									: isPrimary
+										? "button--primary"
+										: "button--secondary",
+							]}
+						>
+							{isPrimary && (
+								<svg
+									class="button__icon"
+									viewBox="0 0 24 24"
+									width="15"
+									height="15"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z" />
+								</svg>
+							)}
+							{!isPrimary && (
+								<svg
+									class="button__icon"
+									viewBox="0 0 24 24"
+									width="15"
+									height="15"
+									fill="currentColor"
+									aria-hidden="true"
+								>
+									<path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3z M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z" />
+								</svg>
+							)}
+							<span>{link.title}</span>
+							<span class="button__arrow">↗</span>
+						</a>
+					);
+				})
+			}
 		</div>
 	</div>
 </div>
